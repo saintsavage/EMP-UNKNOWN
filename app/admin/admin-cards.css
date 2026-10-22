@@ -119,3 +119,47 @@
 .admin-footer{color:#8290a2!important}
 .admin-footer span{color:#8fb6eb!important}
 @media(max-width:760px){.confession-deck{grid-template-columns:1fr!important;gap:14px!important}.card-flip-trigger{height:clamp(290px,76vw,430px)!important}.confession-card{padding:9px!important}}
+
+
+/* Admin cosmic-blue collection: silver edge shine and a unique print per card */
+.admin{
+ background:radial-gradient(ellipse at 12% 10%,#1766c955,transparent 35%),radial-gradient(ellipse at 88% 18%,#168ec755,transparent 32%),radial-gradient(ellipse at 50% 100%,#173d9b66,transparent 46%),linear-gradient(145deg,#041329,#082e61 48%,#06162f)!important;
+}
+.admin:before{position:fixed!important;inset:-10%!important;background:radial-gradient(ellipse at 25% 40%,#6ecaff33,transparent 34%),radial-gradient(ellipse at 75% 60%,#8dbaff22,transparent 35%),linear-gradient(120deg,transparent,#b6e5ff0c,transparent)!important;background-size:170% 170%!important;animation:admin-blue-drift 24s ease-in-out infinite alternate!important}
+.admin-stars{display:block!important;opacity:.7!important;background-image:radial-gradient(2px 2px at 7% 13%,#fff 98%,transparent),radial-gradient(1px 1px at 21% 76%,#d8efff 98%,transparent),radial-gradient(2px 2px at 38% 28%,#fff 98%,transparent),radial-gradient(1px 1px at 62% 18%,#bce4ff 98%,transparent),radial-gradient(1px 1px at 81% 66%,#fff 98%,transparent),radial-gradient(2px 2px at 92% 31%,#e6f5ff 98%,transparent)!important;background-size:310px 270px,390px 330px,460px 390px,350px 310px,410px 360px,500px 430px!important;animation:admin-star-drift 75s linear infinite!important}
+.admin-space-copy{opacity:.035!important;color:#a7d8ff!important}
+.admin-brand{border-bottom-color:#d6ecff33!important}
+.admin-login,.admin-share{border-color:#b8dcff44!important;background:linear-gradient(145deg,#164c85aa,#061a38ed)!important;box-shadow:inset 0 1px #ffffff20,0 18px 55px #00102c88!important}
+.confession-card,.confession-card:nth-child(2n),.confession-card:nth-child(3n){
+ --card-ink:#d9f0ff!important;--card-deep:#0b3474!important;
+ position:relative;isolation:isolate;overflow:visible!important;
+ border:1px solid #d9efff9c!important;
+ background:linear-gradient(135deg,#cceaff 0%,#4f9ee9 7%,#0b3474 25%,#1764b5 48%,#061b45 69%,#8bcfff 100%)!important;
+ box-shadow:inset 0 1px 0 #ffffffb3,inset 0 0 0 2px #dcefff26,0 0 0 1px #9edbff55,0 0 24px #5bbdff44,0 18px 44px #00102d99!important;
+}
+.confession-card:before{content:"";position:absolute;inset:3px;z-index:0;pointer-events:none;border:1px solid #e8f7ff72;background:linear-gradient(115deg,#ffffff20,transparent 20%,transparent 64%,#b7e6ff19),radial-gradient(circle at 15% 20%,#7bc7ff55,transparent 35%),radial-gradient(circle at 88% 85%,#426eff55,transparent 36%);opacity:1}
+.confession-card:after{content:"";position:absolute;z-index:4;inset:0;pointer-events:none;border-radius:5px;background:linear-gradient(115deg,transparent 5%,#ffffff00 30%,#ffffffb0 48%,#ffffff08 53%,transparent 70%);background-size:240% 100%;animation:silver-card-glint 7s ease-in-out infinite;mix-blend-mode:screen;opacity:.45}
+.card-flip-trigger{position:relative;z-index:1;overflow:hidden!important;border:1px solid #e1f4ffb8!important;background:linear-gradient(145deg,#154d9c,#071a40)!important;box-shadow:inset 0 1px #ffffff66,0 0 22px #3eacff2c!important}
+.card-back-design{overflow:hidden!important;background:radial-gradient(ellipse at 25% 18%,var(--print-a,#61b7ff) 0%,transparent 38%),radial-gradient(ellipse at 82% 82%,var(--print-b,#1552b0) 0%,transparent 42%),linear-gradient(145deg,var(--print-c,#0d397e),#04152f 78%)!important;border:1px solid #d9efff99!important;box-shadow:inset 0 1px #ffffff6b,inset 0 0 28px #8ed5ff21!important}
+.card-back-design:before{display:block!important;content:var(--card-pattern,"✦   ·   ✧   ·   🦋")!important;position:absolute;inset:0!important;display:flex!important;align-items:center;justify-content:center;white-space:pre-wrap;text-align:center;color:#e6f6ff!important;font-family:Georgia,serif;font-size:clamp(22px,4vw,54px)!important;line-height:2.2;letter-spacing:.24em;opacity:.2!important;background:repeating-linear-gradient(135deg,#d5efff0c 0 1px,transparent 1px 16px)!important;transform:rotate(-8deg);pointer-events:none}
+.card-back-design:after{content:"✦    🦋    ✧    ·    ✦"!important;position:absolute;left:8%;right:8%;top:17%;bottom:17%;display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;color:#e9f7ff!important;font-size:clamp(13px,2vw,24px)!important;letter-spacing:.5em;opacity:.4!important;pointer-events:none}
+.card-question{position:relative;z-index:2;filter:drop-shadow(0 0 20px #7acaff88)!important}
+.card-brand-repeat,.card-secret-label,.card-corner{z-index:3!important;color:#e6f5ff!important;text-shadow:0 1px 6px #00102c!important}
+.card-design-violet{--print-a:#67c8ff!important;--print-b:#2456db!important;--print-c:#092c70!important;--card-pattern:"🦋   ✧   ✦   🦋"!important}
+.card-design-crimson{--print-a:#a6e5ff!important;--print-b:#087cbf!important;--print-c:#064477!important;--card-pattern:"✦   ·   🦋   ·   ✧"!important}
+.card-design-ice{--print-a:#e0f6ff!important;--print-b:#418fe8!important;--print-c:#123c91!important;--card-pattern:"✧   🦋   ✦   🦋"!important}
+.card-design-gold{--print-a:#5cbbff!important;--print-b:#3549bd!important;--print-c:#092452!important;--card-pattern:"✦   ✧   🦋   ✧"!important}
+.card-design-emerald{--print-a:#79e1ff!important;--print-b:#1676cf!important;--print-c:#053b66!important;--card-pattern:"🦋   ·   ✧   ✦"!important}
+.card-design-rose{--print-a:#bddbff!important;--print-b:#395fd6!important;--print-c:#152c72!important;--card-pattern:"✦   🦋   ✧   🦋"!important}
+.card-confession-face{background:radial-gradient(circle at 18% 8%,#2d73b6,#0b2c59 48%,#041329 100%)!important;border:1px solid #d7efff99!important;box-shadow:inset 0 1px #ffffff45!important}
+.revealed-category{color:#e1f4ff!important;border-color:#a8d8ff!important;background:#0a2e60aa!important}
+.revealed-message{color:#fff!important;text-shadow:0 1px 8px #00132d}
+.confession-card-actions{border-top-color:#b8e0ff55!important}
+.confession-card-actions span{color:#d2eaff!important}
+.confession-card-actions button{border-color:#a9d9ff!important;background:linear-gradient(120deg,#eaf8ff,#8bcaff)!important;color:#062044!important}
+.confession-card-actions .admin-delete{color:#fff!important;background:#173e72!important;border-color:#a9d9ff!important}
+@keyframes admin-blue-drift{from{transform:translate(-2%,-1%);background-position:0 15%}to{transform:translate(2%,1%);background-position:100% 85%}}
+@keyframes admin-star-drift{to{background-position:310px 270px,-390px 330px,460px -390px,-350px 310px,410px -360px,500px 430px}}
+@keyframes silver-card-glint{0%,62%{background-position:130% 0;opacity:.08}78%{background-position:-30% 0;opacity:.58}100%{background-position:-30% 0;opacity:.12}}
+@media(max-width:760px){.confession-card:after{animation-duration:9s}.admin-space-copy{font-size:38px!important}}
+@media(prefers-reduced-motion:reduce){.admin:before,.admin-stars,.confession-card:after{animation:none!important}}
