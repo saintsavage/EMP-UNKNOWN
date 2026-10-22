@@ -20,6 +20,8 @@ export default function Admin() {
   const [filter, setFilter] = useState("all");
   const [spinningId, setSpinningId] = useState(null);
   const [revealed, setRevealed] = useState([]);
+  const [activeRevealedId, setActiveRevealedId] = useState(null);
+  const [nextingId, setNextingId] = useState(null);
 
   async function load() {
     setLoading(true);
@@ -59,12 +61,22 @@ export default function Admin() {
   }
 
   async function revealCard(id) {
-    if (revealed.includes(id) || spinningId !== null) return;
+    if (revealed.includes(id) || spinningId !== null || activeRevealedId !== null) return;
     setSpinningId(id);
     window.setTimeout(() => {
-      setRevealed((current) => current.includes(id) ? current : [...current, id]);
+      setActiveRevealedId(id);
       setSpinningId(null);
     }, 1500);
+  }
+
+  function nextCard(id) {
+    if (nextingId !== null) return;
+    setNextingId(id);
+    window.setTimeout(() => {
+      setRevealed((current) => current.includes(id) ? current : [...current, id]);
+      setActiveRevealedId(null);
+      setNextingId(null);
+    }, 650);
   }
 
   async function remove(id) {
@@ -79,6 +91,7 @@ export default function Admin() {
       if (!r.ok) throw new Error(d.error || "Delete failed.");
       setMessages((current) => current.filter((m) => m.id !== id));
       setRevealed((current) => current.filter((messageId) => messageId !== id));
+      if (activeRevealedId === id) setActiveRevealedId(null);
       setError("");
     } catch (e) {
       setError(e.message || "Delete failed.");
@@ -140,7 +153,7 @@ export default function Admin() {
               <div><strong>{messages.length}</strong><span> transmissions received</span><small>Latest 200 anonymous submissions / tap a card to decrypt</small></div>
               <div className="admin-toolbar-actions">
                 <button onClick={load} disabled={loading}>{loading ? "REFRESHING..." : "↻ REFRESH"}</button>
-                <button className="admin-quiet" onClick={() => { if (spinningId === null) setRevealed([]); }} disabled={spinningId !== null}>↺ RESET DECK</button>
+                <button className="admin-quiet" onClick={() => { if (spinningId === null && nextingId === null) { setRevealed([]); setActiveRevealedId(null); } }} disabled={spinningId !== null || nextingId !== null}>↺ RESET DECK</button>
                 <button className="admin-quiet" onClick={logout}>LOG OUT</button>
               </div>
             </div>
@@ -163,36 +176,23 @@ export default function Admin() {
             </div>
             {error && <p className="admin-error" role="alert">{error}</p>}
             <section className="cosmic-decks" aria-label="Anonymous message card decks">
-              <div className="deck-heading"><div><span className="deck-kicker">01 / SEALED TRANSMISSIONS</span><h2>Mystery deck <span>{visibleMessages.filter((m) => !revealed.includes(m.id)).length}</span></h2></div><p>Spin to reveal</p></div>
+              
               <div className="confession-deck">
                 {visibleMessages.filter((m) => !revealed.includes(m.id)).map((m) => {
                   const index = messages.findIndex((item) => item.id === m.id);
                   const isSpinning = spinningId === m.id;
                   const style = CARD_STYLES[index % CARD_STYLES.length];
-                  return <article className={"confession-card card-design-" + style + (isSpinning ? " is-spinning" : "")} key={m.id}>
-                    <button className="card-flip-trigger" onClick={() => revealCard(m.id)} disabled={isSpinning || spinningId !== null} aria-label="Shake, cut, and reveal anonymous message">
+                  return <article className={"confession-card card-design-" + style + (isSpinning ? " is-spinning" : "") + (activeRevealedId === m.id ? " is-revealed" : "") + (nextingId === m.id ? " is-voiding" : "")} key={m.id}>
+                    <button className="card-flip-trigger" onClick={() => revealCard(m.id)} disabled={isSpinning || spinningId !== null || activeRevealedId !== null || nextingId !== null} aria-label="Shake, cut, and reveal anonymous message">
                       <span className="card-back-design" aria-hidden="true"><span className="card-brand-repeat">EMP EXCLUSIVE · EMP UNKNOWN · SAYNT</span><span className="card-question">?</span><span className="card-secret-label">{isSpinning ? "CUTTING TRANSMISSION..." : "TAP TO REVEAL"}</span><span className="card-corner card-corner-one">EMP / {String(index + 1).padStart(3, "0")}</span><span className="card-corner card-corner-two">ANONYMOUS</span></span>
                       <span className="card-slice card-slice-top" aria-hidden="true"><span className="card-slice-question">?</span><span className="card-slice-label">EMP EXCLUSIVE</span></span><span className="card-slice card-slice-bottom" aria-hidden="true"><span className="card-slice-question">?</span><span className="card-slice-label">EMP UNKNOWN</span></span>
                       <span className="card-confession-face"><span className="revealed-category">{CATEGORY_LABELS[m.category] || CATEGORY_LABELS.general}</span><span className="revealed-message">{m.message}</span><span className="revealed-ornament">✦ ✧ EMP ✧ ✦</span></span>
                     </button>
-                    <div className="confession-card-actions"><span>TRANSMISSION #{m.id}</span><button onClick={() => copyMessage(m.message)}>COPY</button><button className="admin-delete" onClick={() => remove(m.id)}>DELETE</button></div>
+                    <div className="confession-card-actions"><span>TRANSMISSION #{m.id}</span>{activeRevealedId === m.id ? <button className="card-next-button" onClick={() => nextCard(m.id)} disabled={nextingId !== null}>{nextingId === m.id ? "DISAPPEARING..." : "NEXT →"}</button> : <button onClick={() => copyMessage(m.message)}>COPY</button>}<button className="admin-delete" onClick={() => remove(m.id)}>DELETE</button></div>
                   </article>;
                 })}
               </div>
               {!visibleMessages.some((m) => !revealed.includes(m.id)) && <div className="deck-empty">{messages.length ? "Every card in this sector has been revealed." : "The universe is quiet. New transmissions will appear here."}</div>}
-              <div className="deck-divider"><span>✦</span><i /><span>EMP EXCLUSIVE / ARCHIVE</span><i /><span>✦</span></div>
-              <div className="deck-heading revealed-heading"><div><span className="deck-kicker">02 / DECRYPTED TRANSMISSIONS</span><h2>Revealed deck <span>{visibleMessages.filter((m) => revealed.includes(m.id)).length}</span></h2></div><p>Collected secrets</p></div>
-              <div className="confession-deck revealed-deck">
-                {visibleMessages.filter((m) => revealed.includes(m.id)).map((m) => {
-                  const index = messages.findIndex((item) => item.id === m.id);
-                  const style = CARD_STYLES[index % CARD_STYLES.length];
-                  return <article className={"confession-card card-design-" + style + " is-revealed"} key={m.id}>
-                    <div className="card-flip-trigger revealed-static"><span className="card-back-design" aria-hidden="true"><span className="card-question">?</span></span><span className="card-confession-face"><span className="revealed-category">{CATEGORY_LABELS[m.category] || CATEGORY_LABELS.general}</span><span className="revealed-message">{m.message}</span><span className="revealed-ornament">✦ ✧ EMP ✧ ✦</span></span></div>
-                    <div className="confession-card-actions"><span>TRANSMISSION #{m.id}</span><button onClick={() => copyMessage(m.message)}>COPY</button><button className="admin-delete" onClick={() => remove(m.id)}>DELETE</button></div>
-                  </article>;
-                })}
-              </div>
-              {!visibleMessages.some((m) => revealed.includes(m.id)) && <div className="deck-empty deck-empty-quiet">Your revealed cards will land here after their spin.</div>}
             </section>
           </>
         )}
