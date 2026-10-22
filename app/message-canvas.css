@@ -1,0 +1,16 @@
+/* Give the anonymous message canvas some life. */
+.message-entry-card{position:relative;isolation:isolate;overflow:hidden}
+.message-entry-card:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 92% 8%,color-mix(in srgb,var(--card-glow),transparent 83%),transparent 35%),radial-gradient(ellipse at 0% 100%,color-mix(in srgb,var(--card-glow),transparent 91%),transparent 40%)}
+.message-entry-card:after{content:"EMP / UNKNOWN • PRIVATE THOUGHTS";position:absolute;top:28px;right:clamp(20px,4vw,42px);color:color-mix(in srgb,var(--card-glow),transparent 38%);font-size:8px;font-weight:900;letter-spacing:.18em;opacity:.75;pointer-events:none}
+.message-entry-card .card-head{position:relative;padding-bottom:14px;border-bottom:1px solid color-mix(in srgb,var(--card-glow),transparent 78%)}
+.message-entry-card .card-symbol{display:grid;place-items:center;width:42px;height:42px;border:1px solid color-mix(in srgb,var(--card-glow),transparent 55%);border-radius:50%;color:var(--card-glow);font-size:26px;text-shadow:0 0 18px var(--card-glow);box-shadow:0 0 24px color-mix(in srgb,var(--card-glow),transparent 85%)}
+.message-entry-card h2{max-width:640px;text-wrap:balance}
+.message-entry-card form{position:relative}
+.message-entry-card textarea{position:relative;display:block;width:100%;box-sizing:border-box;color:#f8f6ff;background-color:#080811;background-image:radial-gradient(ellipse at 95% 0%,color-mix(in srgb,var(--card-glow),transparent 91%),transparent 52%),linear-gradient(color-mix(in srgb,var(--card-glow),transparent 94%) 1px,transparent 1px);background-size:auto,100% 29px;background-position:0 0,0 17px;border:1px solid color-mix(in srgb,var(--card-glow),transparent 58%);border-radius:15px;box-shadow:inset 0 2px 20px #0008,0 0 24px color-mix(in srgb,var(--card-glow),transparent 94%);caret-color:var(--card-glow);transition:border-color .2s,box-shadow .2s}
+.message-entry-card textarea:focus{outline:none;border-color:var(--card-glow);box-shadow:inset 0 2px 20px #0008,0 0 0 3px color-mix(in srgb,var(--card-glow),transparent 87%),0 0 32px color-mix(in srgb,var(--card-glow),transparent 87%)}
+.message-entry-card textarea::placeholder{color:#88839f}
+.entry-footer{align-items:center}
+.anonymous-label{display:inline-flex;align-items:center;gap:7px;color:#b9b3d0;letter-spacing:.1em}
+.transmit-button{position:relative;overflow:hidden;box-shadow:0 7px 28px color-mix(in srgb,var(--card-glow),transparent 82%);transition:transform .2s,filter .2s,box-shadow .2s}
+.transmit-button:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.12);box-shadow:0 10px 34px color-mix(in srgb,var(--card-glow),transparent 70%)}
+@media(max-width:760px){.message-entry-card:after{top:32px;right:18px;font-size:6px;letter-spacing:.1em}.message-entry-card .card-symbol{width:34px;height:34px;font-size:21px}}
