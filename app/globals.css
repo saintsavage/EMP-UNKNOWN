@@ -7,7 +7,6 @@ body:after{inset:0;filter:none;opacity:.1;background-image:radial-gradient(#fff 
 button,textarea{font:inherit}
 .unknown-scene{position:relative;isolation:isolate;z-index:1;min-height:100vh;padding:32px 5vw 38px;overflow:hidden;background:radial-gradient(ellipse at 12% 20%,#421c7955 0,transparent 34%),radial-gradient(ellipse at 87% 25%,#063d5555 0,transparent 35%),radial-gradient(ellipse at 52% 100%,#5a164b44 0,transparent 36%),linear-gradient(135deg,#080812dd,#111025e8 52%,#090914ee)}
 .unknown-scene:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(120deg,transparent 0 22%,#7d54ff08 38%,transparent 53%,#00e5ff08 74%,transparent);background-size:220% 220%;animation:aurora 12s ease-in-out infinite alternate}
-.wall-stamp{position:absolute;right:5vw;top:26px;font-size:10px;font-weight:950;letter-spacing:.22em;color:#ff3f5f;text-shadow:0 0 12px #ff1744,0 0 26px #ff174477;transform:rotate(2deg)}
 .topline{display:flex;justify-content:space-between;align-items:center;gap:18px;position:relative;max-width:1400px;margin:auto}
 .brand{font-size:11px;font-weight:950;letter-spacing:.17em;color:#d7d5ff}.brand span{color:#77738e;padding:0 5px}
 .live-status{display:flex;align-items:center;gap:8px;font-size:9px;letter-spacing:.15em;color:#b7faff}.live-status i{width:7px;height:7px;border-radius:50%;background:#5affeb;box-shadow:0 0 12px #5affeb;animation:pulse 1.8s infinite}
@@ -45,8 +44,8 @@ button,textarea{font:inherit}
 @keyframes aurora{from{background-position:0% 20%}to{background-position:100% 80%}}
 @keyframes pulse{50%{opacity:.35;box-shadow:0 0 3px #5affeb}}
 @media(max-width:1000px){.message-cards{gap:14px}.message-card{padding:20px 16px}.card-foot{align-items:flex-start;flex-direction:column}.card-foot button{width:100%;min-height:40px}.anonymous-label{font-size:8px}.card-description{min-height:78px}}
-@media(max-width:760px){.unknown-scene{padding:24px 18px 30px}.wall-stamp{top:66px;right:18px;font-size:8px}.hero{margin:60px auto 35px}.message-cards{grid-template-columns:1fr;max-width:520px;gap:19px}.message-card,.message-card:nth-child(2),.message-card:nth-child(3){min-height:0;padding:23px 22px;animation-duration:6s}.message-card h2{font-size:22px}.card-description{min-height:0}.card-foot{flex-direction:row;align-items:center}.card-foot button{width:auto}.anonymous-label{font-size:9px}}
-@media(max-width:430px){.topline{align-items:flex-start;flex-direction:column;gap:12px}.wall-stamp{top:25px;font-size:7px;max-width:145px;text-align:right}.hero{margin-top:48px}.hero h1{font-size:48px}.subtitle{font-size:13px}.message-card{padding:20px 17px!important}.card-foot button{padding:11px 12px}}
+@media(max-width:760px){.unknown-scene{padding:24px 18px 30px}.hero{margin:60px auto 35px}.message-cards{grid-template-columns:1fr;max-width:520px;gap:19px}.message-card,.message-card:nth-child(2),.message-card:nth-child(3){min-height:0;padding:23px 22px;animation-duration:6s}.message-card h2{font-size:22px}.card-description{min-height:0}.card-foot{flex-direction:row;align-items:center}.card-foot button{width:auto}.anonymous-label{font-size:9px}}
+@media(max-width:430px){.topline{align-items:flex-start;flex-direction:column;gap:12px}.hero{margin-top:48px}.hero h1{font-size:48px}.subtitle{font-size:13px}.message-card{padding:20px 17px!important}.card-foot button{padding:11px 12px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 
 /* EMP UNKNOWN private inbox */
