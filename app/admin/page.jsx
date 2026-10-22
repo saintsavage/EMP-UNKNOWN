@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import "./admin-cards.css";
+import { downloadCardImage } from "./download-card";
 
 const CATEGORY_LABELS = {
   cancelled: "GET CANCELLED",
@@ -171,7 +172,7 @@ export default function Admin() {
                       <span className="card-slice card-slice-top" aria-hidden="true"><span className="card-slice-question">?</span><span className="card-slice-label">EMP EXCLUSIVE</span></span><span className="card-slice card-slice-bottom" aria-hidden="true"><span className="card-slice-question">?</span><span className="card-slice-label">EMP UNKNOWN</span></span>
                       <span className="card-confession-face"><span className="revealed-category">{CATEGORY_LABELS[m.category] || CATEGORY_LABELS.general}</span><span className="revealed-message">{m.message}</span><span className="revealed-ornament">✦ ✧ EMP ✧ ✦</span></span>
                     </button>
-                    <div className="confession-card-actions"><span>TRANSMISSION #{m.id}</span>{activeRevealedId === m.id ? <button className="card-next-button" onClick={() => nextCard(m.id)} disabled={nextingId !== null}>{nextingId === m.id ? "DISAPPEARING..." : "NEXT →"}</button> : <button onClick={() => copyMessage(m.message)}>COPY</button>}<button className="admin-delete" onClick={() => remove(m.id)}>DELETE</button></div>
+                    <div className="confession-card-actions"><span>TRANSMISSION #{m.id}</span>{activeRevealedId === m.id ? <><button onClick={() => downloadCardImage(m.message, CATEGORY_LABELS[m.category] || CATEGORY_LABELS.general, m.id, style)}>↓ HD IMAGE</button><button className="card-next-button" onClick={() => nextCard(m.id)} disabled={nextingId !== null}>{nextingId === m.id ? "DISAPPEARING..." : "NEXT →"}</button></> : <button onClick={() => copyMessage(m.message)}>COPY</button>}<button className="admin-delete" onClick={() => remove(m.id)}>DELETE</button></div>
                   </article>;
                 })}
               </div>
