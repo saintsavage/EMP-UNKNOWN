@@ -312,3 +312,44 @@ button,textarea{font:inherit}
  .message-entry-card{padding:22px 18px;border-radius:19px}
  .message-entry-card textarea{height:clamp(180px,30dvh,300px)}
 }
+
+
+/* EMP UNKNOWN redesign: streetwear premium, steel and cobalt */
+html,body{background:#080b10!important;color:#f5f7fa}
+body:before{display:none!important}
+body:after{opacity:.035!important;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px)!important;background-size:64px 64px!important;mask-image:linear-gradient(to bottom,black,transparent 78%)}
+.unknown-scene{background:linear-gradient(145deg,#07090d 0%,#101722 55%,#080b10 100%)!important}
+.unknown-scene:before{display:none!important}
+.topline{padding-bottom:18px;border-bottom:1px solid #a9b5c322}
+.brand{color:#f5f7fa;letter-spacing:.2em}
+.brand span{color:#5b8bc9}
+.live-status{color:#b9cce4}
+.live-status i{background:#78a9e8;box-shadow:none;animation:none}
+.hero{margin:clamp(48px,8vh,82px) auto 48px}
+.eyebrow{color:#8eafd9;letter-spacing:.28em}
+.hero h1 span{background:linear-gradient(100deg,#fff 0%,#dce8f7 48%,#8fb6eb 100%);color:transparent;background-clip:text;-webkit-background-clip:text;text-shadow:none}
+.subtitle{color:#b5c0ce}
+.message-cards{max-width:1120px;gap:18px}
+.message-card{--card-glow:#8fb6eb!important;border-radius:5px!important;min-height:330px;background:linear-gradient(145deg,#151d28,#0b1017 72%)!important;border:1px solid #aebdd133!important;box-shadow:inset 0 1px #ffffff18,0 20px 44px #0006!important;backdrop-filter:none!important;animation:none!important}
+.message-card:nth-child(2),.message-card:nth-child(3){transform:none!important;border-radius:5px!important}
+.message-card:before{background:linear-gradient(130deg,#ffffff08,transparent 45%,#86a9d509)!important}
+.message-card:after{display:none!important}
+.message-card:hover,.category-choice:hover{transform:translateY(-5px)!important;border-color:#729bd0!important;box-shadow:inset 0 1px #ffffff20,0 25px 50px #0008!important}
+.card-number,.category-continue,.character-count{color:#8fb6eb!important}
+.card-symbol{border-radius:4px!important;background:#17263a!important;border-color:#526c8b!important;color:#d9e7f7!important;box-shadow:none!important}
+.message-card h2{font-size:clamp(22px,2.2vw,30px);text-transform:uppercase;letter-spacing:-.04em}
+.card-description{color:#b5c0ce}
+.category-continue{border-top-color:#aebdd133!important}
+.message-entry-card{border-radius:5px!important;background:linear-gradient(145deg,#151d28,#0a0e14 72%)!important;border-color:#aebdd144!important;box-shadow:0 24px 65px #0008!important;backdrop-filter:none!important}
+.message-entry-card textarea,.message-card textarea{border-radius:4px!important;background:#070b11!important;border-color:#46586d!important;color:#f5f7fa}
+.message-entry-card textarea:focus,.message-card textarea:focus{border-color:#7fa8df!important;box-shadow:0 0 0 2px #7fa8df22!important}
+.back-to-categories{color:#a8c8f0!important}
+.transmit-button,.card-foot button{border-radius:4px!important;background:#dce7f5!important;color:#101722!important;box-shadow:none!important}
+.transmit-button:hover,.card-foot button:hover{filter:brightness(1.05)}
+.unknown-footer{color:#8593a4}
+.unknown-footer span{color:#8fb6eb}
+.unknown-footer strong{color:#e6edf6}
+.success-veil{background:#080b10f5!important}
+.success-mark>span{border-color:#a8c9f4!important;color:#a8c9f4!important;text-shadow:none!important;box-shadow:inset 0 0 25px #8fb6eb12!important}
+.success-mark small{color:#b5c0ce}
+@media(max-width:760px){.hero{margin:40px auto 30px}.message-card{min-height:0!important}.message-card h2{font-size:23px}}
