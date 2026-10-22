@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <main className="unknown-scene">
-      <header className="topline"><div className="brand">EMP EXCLUSIVE <span>/</span> UNKNOWN</div><div className="live-status"><i /> ANONYMOUS TRANSMISSION</div></header>
+      <header className="topline"><div className="brand">EMP EXCLUSIVE <span>/</span> UNKNOWN</div><div className="collab-stamp" aria-label="EMP Exclusive x Planet Tumi collaboration"><span>COLLABORATION</span><strong>EMP EXCLUSIVE <i>×</i> PLANET TUMI</strong><small>OFFICIAL PROJECT STAMP</small></div><div className="live-status"><i /> ANONYMOUS TRANSMISSION</div></header>
       <section className="hero">
         <p className="eyebrow">NO NAMES. NO FILTER.</p>
         <h1><span>SAY IT.</span><br />LEAVE IT HERE.</h1>
@@ -59,7 +59,7 @@ export default function Home() {
       {!selected ? (
         <section className="message-cards category-picker" aria-label="Choose a message category">
           {categories.map(item => (
-            <button className="message-card category-choice" key={item.id} onClick={() => { setSelected(item); setError(""); }} style={{ "--card-glow": item.color }}>
+            <button className={`message-card category-choice ${item.id === "confession" ? "design-butterfly" : "design-stars"}`} key={item.id} onClick={() => { setSelected(item); setError(""); }} style={{ "--card-glow": item.color }}>
               <div className="card-head"><span className="card-number">{item.number} / CHOOSE YOUR SPACE</span><span className="card-symbol" aria-hidden="true">{item.symbol}</span></div>
               <h2>{item.title}</h2>
               <p className="card-description">{item.description}</p>
