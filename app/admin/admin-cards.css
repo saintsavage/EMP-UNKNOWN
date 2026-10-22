@@ -76,3 +76,46 @@
 @media(prefers-reduced-motion:reduce) {
   .confession-card.is-voiding { animation:none!important; }
 }
+
+
+/* EMP UNKNOWN admin redesign: confidential steel case files */
+.admin{background:#080b10!important;color:#f3f6fa!important}
+.admin:before{background:linear-gradient(145deg,#080b10,#111925 56%,#080b10)!important}
+.admin-stars{display:none!important}
+.admin-space-copy{opacity:.025!important;color:#9dbce4!important;transform:rotate(-12deg)!important}
+.admin-brand{color:#eef4fb!important;text-shadow:none!important;border-bottom:1px solid #aebdd322;padding-bottom:16px}
+.admin-lock{color:#9dbce4!important;text-shadow:none!important}
+.admin-shell h1 em{background:linear-gradient(100deg,#f7f9fc,#8fb6eb)!important;color:transparent!important;background-clip:text!important;-webkit-background-clip:text!important}
+.admin-eyebrow{color:#8fb6eb!important}
+.admin-login,.admin-share{border-radius:5px!important;background:linear-gradient(145deg,#151d28,#0b1017)!important;border-color:#7e91a833!important;backdrop-filter:none!important;box-shadow:inset 0 1px #ffffff12,0 18px 50px #0006!important}
+.admin-login input,.admin-filter-row select{border-radius:4px!important;background:#080c12!important;border-color:#52647a!important}
+.admin button{border-radius:4px!important;border:1px solid #8ca5c4!important;background:#dce7f5!important;color:#111925!important;box-shadow:none!important}
+.admin .admin-quiet{background:#151e2a!important;color:#dce7f5!important;border-color:#52647a!important}
+.admin-error{color:#e8b9c2!important}
+.admin-toolbar{border-color:#aebdd322!important}
+.admin-toolbar>div:first-child{color:#b5c0ce!important}
+.admin-toolbar small{color:#8290a2!important}
+.admin-filter-row>span{color:#9eacbd!important}
+.admin-share p:not(.admin-eyebrow){color:#b5c0ce!important}
+.confession-deck{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px!important;padding:0 0 8vh!important}
+.confession-card,.confession-card:nth-child(2n),.confession-card:nth-child(3n){margin:0!important;transform:none!important;pointer-events:auto!important;--card-ink:#a8c8f0!important;--card-deep:#17263a!important}
+.confession-card{padding:12px!important;border:1px solid #8ca5c433!important;border-radius:5px!important;background:linear-gradient(145deg,#151d28,#0b1017 75%)!important;box-shadow:inset 0 1px #ffffff10,0 15px 38px #0006!important}
+.card-flip-trigger{height:clamp(290px,42vw,460px)!important;border-radius:4px!important;box-shadow:none!important;border:1px solid #7f94ad55!important}
+.card-back-design,.card-confession-face{border-radius:4px!important;border-color:#7f94ad55!important;box-shadow:inset 0 1px #ffffff20!important}
+.card-back-design{background:linear-gradient(145deg,#1a2635,#0b1017 72%)!important}
+.card-back-design:before{display:none!important}
+.card-back-design:after{color:#dce7f5!important;opacity:.045!important}
+.card-question{filter:none!important;background:linear-gradient(145deg,#fff,#8fb6eb)!important;background-clip:text!important;-webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important}
+.card-secret-label{color:#b8cde7!important;text-shadow:none!important}
+.card-corner{color:#c6d1de!important}
+.card-confession-face{background:linear-gradient(145deg,#182331,#0a0e14)!important}
+.revealed-category{color:#b8d0f0!important;border-color:#607a9b!important;border-radius:3px!important}
+.revealed-message{color:#f2f5f9!important}
+.confession-card-actions{border-top:1px solid #aebdd322!important}
+.confession-card-actions span{color:#8998aa!important}
+.confession-card-actions button{background:#17212e!important;color:#dce7f5!important;border-color:#52647a!important}
+.confession-card-actions .admin-delete{color:#e6c1c7!important;border-color:#8d626b!important}
+.deck-empty{color:#9eacbd!important}
+.admin-footer{color:#8290a2!important}
+.admin-footer span{color:#8fb6eb!important}
+@media(max-width:760px){.confession-deck{grid-template-columns:1fr!important;gap:14px!important}.card-flip-trigger{height:clamp(290px,76vw,430px)!important}.confession-card{padding:9px!important}}
