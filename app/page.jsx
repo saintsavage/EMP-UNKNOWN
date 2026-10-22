@@ -53,7 +53,6 @@ function MessageCard({ item }) {
 export default function Home() {
   return (
     <main className="unknown-scene">
-      <div className="wall-stamp">PROPERTY OF EMP EXCLUSIVE</div>
       <header className="topline"><div className="brand">EMP EXCLUSIVE <span>/</span> UNKNOWN</div><div className="live-status"><i /> ANONYMOUS TRANSMISSION</div></header>
       <section className="hero">
         <p className="eyebrow">NO NAMES. NO FILTER.</p>
