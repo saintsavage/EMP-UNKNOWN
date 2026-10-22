@@ -172,8 +172,8 @@ export default function Admin() {
                   return <article className={"confession-card card-design-" + style + (isSpinning ? " is-spinning" : "")} key={m.id}>
                     <button className="card-flip-trigger" onClick={() => revealCard(m.id)} disabled={isSpinning || spinningId !== null} aria-label="Shake, cut, and reveal anonymous message">
                       <span className="card-back-design" aria-hidden="true"><span className="card-brand-repeat">EMP EXCLUSIVE · EMP UNKNOWN · SAYNT</span><span className="card-question">?</span><span className="card-secret-label">{isSpinning ? "CUTTING TRANSMISSION..." : "TAP TO REVEAL"}</span><span className="card-corner card-corner-one">EMP / {String(index + 1).padStart(3, "0")}</span><span className="card-corner card-corner-two">ANONYMOUS</span></span>
-                      <span className="card-slice card-slice-top" aria-hidden="true"><span>✦</span></span><span className="card-slice card-slice-bottom" aria-hidden="true"><span>EMP UNKNOWN</span></span>
-                      <span className="card-confession-face"><span className="revealed-category">{CATEGORY_LABELS[m.category] || CATEGORY_LABELS.general}</span><span className="revealed-message">{m.message}</span><span className="revealed-date">{new Date(m.created_at).toLocaleString()}</span><span className="revealed-ornament">✦ ✧ EMP ✧ ✦</span></span>
+                      <span className="card-slice card-slice-top" aria-hidden="true"><span className="card-slice-question">?</span><span className="card-slice-label">EMP EXCLUSIVE</span></span><span className="card-slice card-slice-bottom" aria-hidden="true"><span className="card-slice-question">?</span><span className="card-slice-label">EMP UNKNOWN</span></span>
+                      <span className="card-confession-face"><span className="revealed-category">{CATEGORY_LABELS[m.category] || CATEGORY_LABELS.general}</span><span className="revealed-message">{m.message}</span><span className="revealed-ornament">✦ ✧ EMP ✧ ✦</span></span>
                     </button>
                     <div className="confession-card-actions"><span>TRANSMISSION #{m.id}</span><button onClick={() => copyMessage(m.message)}>COPY</button><button className="admin-delete" onClick={() => remove(m.id)}>DELETE</button></div>
                   </article>;
@@ -187,7 +187,7 @@ export default function Admin() {
                   const index = messages.findIndex((item) => item.id === m.id);
                   const style = CARD_STYLES[index % CARD_STYLES.length];
                   return <article className={"confession-card card-design-" + style + " is-revealed"} key={m.id}>
-                    <div className="card-flip-trigger revealed-static"><span className="card-back-design" aria-hidden="true"><span className="card-question">?</span></span><span className="card-confession-face"><span className="revealed-category">{CATEGORY_LABELS[m.category] || CATEGORY_LABELS.general}</span><span className="revealed-message">{m.message}</span><span className="revealed-date">{new Date(m.created_at).toLocaleString()}</span><span className="revealed-ornament">✦ ✧ EMP ✧ ✦</span></span></div>
+                    <div className="card-flip-trigger revealed-static"><span className="card-back-design" aria-hidden="true"><span className="card-question">?</span></span><span className="card-confession-face"><span className="revealed-category">{CATEGORY_LABELS[m.category] || CATEGORY_LABELS.general}</span><span className="revealed-message">{m.message}</span><span className="revealed-ornament">✦ ✧ EMP ✧ ✦</span></span></div>
                     <div className="confession-card-actions"><span>TRANSMISSION #{m.id}</span><button onClick={() => copyMessage(m.message)}>COPY</button><button className="admin-delete" onClick={() => remove(m.id)}>DELETE</button></div>
                   </article>;
                 })}
