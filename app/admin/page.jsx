@@ -4,7 +4,7 @@ import "./admin-cards.css";
 import { downloadCardImage } from "./download-card";
 
 const CATEGORY_LABELS = {
-  cancelled: "GET CANCELLED",
+  cancelled: "ANONYMOUS MESSAGE",
   confession: "CONFESSION",
   "emp-exclusive": "EMP EXCLUSIVE",
   general: "GENERAL",
@@ -152,9 +152,8 @@ export default function Admin() {
               <span>FILTER BY CATEGORY</span>
               <select value={filter} onChange={(e) => setFilter(e.target.value)} aria-label="Filter messages by category">
                 <option value="all">All messages ({messages.length})</option>
-                <option value="cancelled">Get cancelled</option>
+                <option value="cancelled">Anonymous messages</option>
                 <option value="confession">Confessions</option>
-                <option value="emp-exclusive">EMP Exclusive</option>
                 <option value="general">General / older messages</option>
               </select>
             </div>
