@@ -64,7 +64,7 @@ export default function Admin() {
     window.setTimeout(() => {
       setRevealed((current) => current.includes(id) ? current : [...current, id]);
       setSpinningId(null);
-    }, 5000);
+    }, 2400);
   }
 
   async function remove(id) {
@@ -140,6 +140,7 @@ export default function Admin() {
               <div><strong>{messages.length}</strong><span> transmissions received</span><small>Latest 200 anonymous submissions / tap a card to decrypt</small></div>
               <div className="admin-toolbar-actions">
                 <button onClick={load} disabled={loading}>{loading ? "REFRESHING..." : "↻ REFRESH"}</button>
+                <button className="admin-quiet" onClick={() => { if (spinningId === null) setRevealed([]); }} disabled={spinningId !== null}>↺ RESET DECK</button>
                 <button className="admin-quiet" onClick={logout}>LOG OUT</button>
               </div>
             </div>
@@ -161,43 +162,36 @@ export default function Admin() {
               </select>
             </div>
             {error && <p className="admin-error" role="alert">{error}</p>}
-            <section className="confession-table" aria-label="Anonymous confession card table">
-              <div className="confession-table-top">
-                <span>THE UNKNOWN TABLE</span>
-                <span>✦ STARDUST ARCHIVE ✦</span>
-              </div>
+            <section className="cosmic-decks" aria-label="Anonymous message card decks">
+              <div className="deck-heading"><div><span className="deck-kicker">01 / SEALED TRANSMISSIONS</span><h2>Mystery deck <span>{visibleMessages.filter((m) => !revealed.includes(m.id)).length}</span></h2></div><p>Spin to reveal</p></div>
               <div className="confession-deck">
-                {visibleMessages.map((m, index) => {
-                  const isRevealed = revealed.includes(m.id);
+                {visibleMessages.filter((m) => !revealed.includes(m.id)).map((m) => {
+                  const index = messages.findIndex((item) => item.id === m.id);
                   const isSpinning = spinningId === m.id;
                   const style = CARD_STYLES[index % CARD_STYLES.length];
-                  return (
-                    <article className={"confession-card card-design-" + style + (isSpinning ? " is-spinning" : "") + (isRevealed ? " is-revealed" : "")} key={m.id}>
-                      <button className="card-flip-trigger" onClick={() => revealCard(m.id)} disabled={isSpinning || isRevealed || spinningId !== null} aria-label={isRevealed ? "Confession revealed" : isSpinning ? "Revealing confession" : "Spin and reveal anonymous confession"}>
-                        <span className="card-back-design" aria-hidden="true">
-                          <span className="card-brand-repeat">EMP EXCLUSIVE · EMP UNKNOWN · SAYNT · EMP EXCLUSIVE · EMP UNKNOWN · SAYNT</span>
-                          <span className="card-question">?</span>
-                          <span className="card-secret-label">{isSpinning ? "DECRYPTING TRANSMISSION" : isRevealed ? "TRANSMISSION DECRYPTED" : "TAP TO DECRYPT"}</span>
-                          <span className="card-corner card-corner-one">EMP / {String(index + 1).padStart(3, "0")}</span>
-                          <span className="card-corner card-corner-two">ANONYMOUS</span>
-                        </span>
-                        <span className="card-confession-face">
-                          <span className="revealed-category">{CATEGORY_LABELS[m.category] || CATEGORY_LABELS.general}</span>
-                          <span className="revealed-message">{m.message}</span>
-                          <span className="revealed-date">{new Date(m.created_at).toLocaleString()}</span>
-                        </span>
-                      </button>
-                      <div className="confession-card-actions">
-                        <span>TRANSMISSION #{m.id}</span>
-                        <button onClick={() => copyMessage(m.message)}>COPY</button>
-                        <button className="admin-delete" onClick={() => remove(m.id)}>DELETE</button>
-                      </div>
-                    </article>
-                  );
+                  return <article className={"confession-card card-design-" + style + (isSpinning ? " is-spinning" : "")} key={m.id}>
+                    <button className="card-flip-trigger" onClick={() => revealCard(m.id)} disabled={isSpinning || spinningId !== null} aria-label="Spin and reveal anonymous message">
+                      <span className="card-back-design" aria-hidden="true"><span className="card-brand-repeat">EMP EXCLUSIVE · EMP UNKNOWN · SAYNT</span><span className="card-question">?</span><span className="card-secret-label">{isSpinning ? "DECRYPTING..." : "TAP TO DECRYPT"}</span><span className="card-corner card-corner-one">EMP / {String(index + 1).padStart(3, "0")}</span><span className="card-corner card-corner-two">ANONYMOUS</span></span>
+                      <span className="card-confession-face"><span className="revealed-category">{CATEGORY_LABELS[m.category] || CATEGORY_LABELS.general}</span><span className="revealed-message">{m.message}</span><span className="revealed-date">{new Date(m.created_at).toLocaleString()}</span><span className="revealed-ornament">✦ ✧ EMP ✧ ✦</span></span>
+                    </button>
+                    <div className="confession-card-actions"><span>TRANSMISSION #{m.id}</span><button onClick={() => copyMessage(m.message)}>COPY</button><button className="admin-delete" onClick={() => remove(m.id)}>DELETE</button></div>
+                  </article>;
                 })}
               </div>
-              {!visibleMessages.length && <div className="admin-empty"><span>✳</span><h2>{messages.length ? "No transmissions in this sector." : "The universe is quiet."}</h2><p>{messages.length ? "Choose another category to scan a different sector." : "Send a test message from the public page to populate the table."}</p></div>}
-              <div className="confession-table-bottom"><span>EMP EXCLUSIVE</span><span>EVERY SECRET LEAVES A SIGNAL</span><span>✦ ✦ ✦</span></div>
+              {!visibleMessages.some((m) => !revealed.includes(m.id)) && <div className="deck-empty">{messages.length ? "Every card in this sector has been revealed." : "The universe is quiet. New transmissions will appear here."}</div>}
+              <div className="deck-divider"><span>✦</span><i /><span>EMP EXCLUSIVE / ARCHIVE</span><i /><span>✦</span></div>
+              <div className="deck-heading revealed-heading"><div><span className="deck-kicker">02 / DECRYPTED TRANSMISSIONS</span><h2>Revealed deck <span>{visibleMessages.filter((m) => revealed.includes(m.id)).length}</span></h2></div><p>Collected secrets</p></div>
+              <div className="confession-deck revealed-deck">
+                {visibleMessages.filter((m) => revealed.includes(m.id)).map((m) => {
+                  const index = messages.findIndex((item) => item.id === m.id);
+                  const style = CARD_STYLES[index % CARD_STYLES.length];
+                  return <article className={"confession-card card-design-" + style + " is-revealed"} key={m.id}>
+                    <div className="card-flip-trigger revealed-static"><span className="card-back-design" aria-hidden="true"><span className="card-question">?</span></span><span className="card-confession-face"><span className="revealed-category">{CATEGORY_LABELS[m.category] || CATEGORY_LABELS.general}</span><span className="revealed-message">{m.message}</span><span className="revealed-date">{new Date(m.created_at).toLocaleString()}</span><span className="revealed-ornament">✦ ✧ EMP ✧ ✦</span></span></div>
+                    <div className="confession-card-actions"><span>TRANSMISSION #{m.id}</span><button onClick={() => copyMessage(m.message)}>COPY</button><button className="admin-delete" onClick={() => remove(m.id)}>DELETE</button></div>
+                  </article>;
+                })}
+              </div>
+              {!visibleMessages.some((m) => revealed.includes(m.id)) && <div className="deck-empty deck-empty-quiet">Your revealed cards will land here after their spin.</div>}
             </section>
           </>
         )}
