@@ -5,7 +5,7 @@ export async function POST(request) {
   try {
     const body = await request.json();
     const message = typeof body.message === "string" ? body.message.trim() : "";
-    const allowedCategories = ["cancelled", "confession", "emp-exclusive"];
+    const allowedCategories = ["cancelled", "confession"];
     const category = allowedCategories.includes(body.category) ? body.category : "general";
 
     if (message.length < 1 || message.length > 1500) {
