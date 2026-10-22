@@ -4,9 +4,8 @@ import { useEffect, useState } from "react";
 import "./message-canvas.css";
 
 const categories = [
-  { id: "cancelled", number: "01", title: "Say Something That Will Get You Cancelled", description: "The thought you would never post under your own name.", placeholder: "Type your unfiltered thought…", symbol: "✳", color: "#56f4ff" },
-  { id: "confession", number: "02", title: "Say a Confession", description: "Something you have been carrying around. No names required.", placeholder: "Let it out here…", symbol: "◌", color: "#c18aff" },
-  { id: "emp-exclusive", number: "03", title: "Your Thoughts on EMP Exclusive", description: "Opinions, feedback, support, criticism. Speak your mind.", placeholder: "Speak on EMP Exclusive…", symbol: "⌁", color: "#ff6db6" },
+  { id: "cancelled", number: "01", title: "Anonymous Message", description: "Say what is on your mind without attaching your name.", placeholder: "Type your anonymous message…", symbol: "✳", color: "#56f4ff" },
+  { id: "confession", number: "02", title: "Confession", description: "Something you have been carrying around. No names required.", placeholder: "Let it out here…", symbol: "◌", color: "#c18aff" },
 ];
 
 export default function Home() {
