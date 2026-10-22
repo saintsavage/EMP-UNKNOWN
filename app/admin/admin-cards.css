@@ -1,0 +1,76 @@
+/* Full-screen EMP UNKNOWN stacked-card inbox */
+.admin-cards-placeholder { display:none; }
+.admin-shell { max-width:none; width:100%; }
+.admin-toolbar { max-width:100%; }
+.admin-filter-row { max-width:100%; }
+.cosmic-decks { margin:12px 0 0; width:100%; }
+.confession-deck {
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:0;
+  perspective:1600px;
+  padding:0 0 18vh;
+}
+.confession-card {
+  position:relative;
+  width:100%;
+  margin:0;
+  transform-origin:center top;
+  transition:transform .35s ease, filter .35s ease;
+}
+.confession-card + .confession-card {
+  margin-top:clamp(-30vh,-24vh,-150px);
+}
+.confession-card:nth-child(2n) { transform:translateX(1.2%) rotate(.35deg); }
+.confession-card:nth-child(3n) { transform:translateX(-.8%) rotate(-.3deg); }
+.confession-card:hover { z-index:20; transform:translateY(-5px) scale(1.003); }
+.confession-card.is-spinning,
+.confession-card.is-revealed,
+.confession-card.is-voiding { z-index:30; }
+.card-flip-trigger {
+  display:block;
+  width:100%;
+  height:clamp(420px,68vh,760px);
+  border-radius:24px!important;
+}
+.card-back-design,.card-confession-face { border-radius:24px; }
+.card-question { font-size:clamp(150px,23vw,280px); }
+.card-brand-repeat { font-size:clamp(11px,1.3vw,16px); }
+.card-secret-label { font-size:11px; }
+.card-corner { font-size:9px; }
+.confession-card-actions {
+  min-height:43px;
+  padding:9px 4px 0;
+  gap:10px;
+}
+.confession-card-actions span { font-size:9px; }
+.confession-card-actions button { padding:9px 15px!important; }
+.confession-card.is-voiding { animation:stack-card-void .65s cubic-bezier(.65,0,.9,.4) both; pointer-events:none; }
+@keyframes stack-card-void {
+  to { opacity:0; transform:translate3d(7vw,-18vh,0) rotate(11deg) scale(.72); filter:blur(8px); }
+}
+@media(max-width:760px) {
+  .admin { padding:12px 10px 18px; }
+  .admin-brand { margin:0 auto 12px; }
+  .admin-toolbar { align-items:flex-start; gap:10px; }
+  .admin-toolbar-actions { flex-wrap:wrap; }
+  .admin-toolbar-actions button { flex:1 1 auto; }
+  .admin-filter-row { margin:8px 0; }
+  .confession-deck { padding-bottom:12vh; }
+  .confession-card + .confession-card { margin-top:-22vh; }
+  .confession-card:nth-child(2n) { transform:translateX(1%) rotate(.25deg); }
+  .confession-card:nth-child(3n) { transform:translateX(-.7%) rotate(-.2deg); }
+  .card-flip-trigger { height:clamp(390px,65dvh,650px); border-radius:18px!important; }
+  .card-back-design,.card-confession-face { border-radius:18px; }
+  .card-question { font-size:clamp(135px,38vw,230px); }
+  .card-brand-repeat { font-size:10px; }
+  .card-secret-label { font-size:8px; }
+  .card-corner { font-size:7px; }
+  .confession-card-actions { gap:5px; flex-wrap:wrap; }
+  .confession-card-actions span { flex-basis:100%; font-size:7px; }
+  .confession-card-actions button { flex:1; padding:8px 5px!important; font-size:8px!important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .confession-card.is-voiding { animation:none!important; }
+}
