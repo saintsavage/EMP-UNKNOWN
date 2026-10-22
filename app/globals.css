@@ -370,3 +370,71 @@ body:after{opacity:.035!important;background-image:linear-gradient(#fff 1px,tran
 .category-choice.design-butterfly:before{content:"✧    🦋    ✧\A   ·        ✦        ·\A 🦋       ✧";white-space:pre;display:flex;align-items:center;justify-content:center;text-align:center;color:#dce7f5;opacity:.14;background:none!important;font-size:clamp(22px,3vw,36px);line-height:2.2;letter-spacing:.2em;transform:rotate(8deg);filter:grayscale(1)}
 .category-choice.design-butterfly:after{content:"🦋";right:20px!important;bottom:15px!important;font-size:clamp(55px,7vw,88px);opacity:.3!important;filter:grayscale(1)!important}
 @media(max-width:760px){.topline{align-items:center}.collab-stamp{order:3;width:100%;min-width:0;max-width:330px;margin:4px auto 0;padding:9px 12px}.collab-stamp strong{font-size:12px}.category-choice.design-stars:before,.category-choice.design-butterfly:before{font-size:22px}.category-choice:after{font-size:64px!important}}
+
+
+/* Cosmic blue glow-up: central floating choice orbs */
+.unknown-scene{
+  min-height:100vh;
+  padding:28px 5vw 34px;
+  background:radial-gradient(ellipse at 16% 15%,#256bdc 0%,transparent 35%),radial-gradient(ellipse at 86% 24%,#1d9bd8 0%,transparent 34%),radial-gradient(ellipse at 50% 100%,#183d9d 0%,transparent 46%),linear-gradient(135deg,#06152f 0%,#092b62 38%,#0c4b83 66%,#071a3c 100%)!important;
+}
+.unknown-scene:before{
+  display:block!important;z-index:-1;inset:-15%;opacity:.5;
+  background:radial-gradient(ellipse at 20% 40%,#6dc9ff55,transparent 30%),radial-gradient(ellipse at 75% 60%,#7ba8ff44,transparent 32%),linear-gradient(120deg,transparent,#7bbcff16,transparent);
+  background-size:160% 160%;animation:blue-nebula 22s ease-in-out infinite alternate;
+}
+.unknown-scene:after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.7;background-image:radial-gradient(2px 2px at 8% 18%,#fff 98%,transparent),radial-gradient(1px 1px at 23% 73%,#d5eaff 98%,transparent),radial-gradient(2px 2px at 41% 30%,#fff 98%,transparent),radial-gradient(1px 1px at 67% 14%,#fff 98%,transparent),radial-gradient(2px 2px at 89% 62%,#d6edff 98%,transparent),radial-gradient(1px 1px at 77% 83%,#fff 98%,transparent);background-size:290px 250px,350px 310px,410px 370px,330px 280px,440px 390px,370px 330px;animation:star-drift 70s linear infinite}
+.topline{position:relative;min-height:66px;padding:0 0 18px;border-bottom:1px solid #d6eaff45}
+.brand{color:#fff;text-shadow:0 2px 16px #66baff55}
+.live-status{color:#e2f2ff}
+.live-status i{background:#a9e2ff;box-shadow:0 0 14px #a9e2ff88}
+.collab-stamp{position:absolute;right:0;top:0;z-index:4;transform:rotate(2deg);border-color:#d6eaff;background:#071c3be8;box-shadow:inset 0 0 0 3px #071c3b,inset 0 0 0 4px #8fcaff,0 8px 28px #00102b88}
+.collab-stamp span,.collab-stamp small{color:#b7dcff}
+.hero{margin:clamp(55px,9vh,100px) auto 42px;max-width:900px}
+.eyebrow{color:#c1e5ff;text-shadow:0 0 20px #64baff44}
+.hero h1{font-size:clamp(42px,6.4vw,76px);text-shadow:0 5px 28px #00112d66}
+.hero h1 span{background:linear-gradient(100deg,#fff 4%,#d8f0ff 42%,#8dcaff 75%,#fff 100%);background-size:180% auto;animation:title-shimmer 8s ease-in-out infinite alternate}
+.subtitle{color:#e0efff}
+.category-picker{display:flex!important;justify-content:center;align-items:center;gap:clamp(28px,7vw,100px);max-width:1000px!important;margin:10px auto 0!important;perspective:1200px}
+.orb-choice{display:flex!important;flex-direction:column;align-items:center;justify-content:center;text-align:center!important;width:clamp(245px,29vw,340px)!important;height:clamp(245px,29vw,340px)!important;min-height:0!important;flex:0 1 340px;padding:34px!important;border-radius:50%!important;overflow:visible!important;isolation:isolate;border:1px solid #d9efffbd!important;
+ background:radial-gradient(circle at 31% 22%,#ffffffa8 0%,#bce5ff70 7%,#4ca8ff44 24%,#1a5fbbd9 57%,#061a49f2 100%)!important;
+ box-shadow:inset 0 5px 22px #ffffff4d,inset 0 -22px 44px #00153f88,0 0 0 8px #a6d8ff0c,0 0 42px #51b8ff66,0 25px 60px #00102e88!important;
+ backdrop-filter:blur(8px);animation:orb-float 6s ease-in-out infinite!important;transition:transform .35s,box-shadow .35s!important;
+}
+.orb-choice:nth-child(2){animation-delay:-3s!important}
+.orb-choice:before{content:"";position:absolute;inset:9px!important;z-index:-1!important;border:1px solid #d6eeff52;border-radius:50%;background:radial-gradient(circle at 70% 75%,#8dd6ff22,transparent 35%),transparent!important;opacity:1!important;pointer-events:none}
+.orb-choice:after{content:"";position:absolute!important;inset:-15px!important;right:auto!important;top:auto!important;bottom:auto!important;width:auto!important;height:auto!important;border:1px solid #c4e7ff7a;border-radius:50%!important;background:conic-gradient(from 0deg,transparent 0 22%,#d7f0ffbb 25%,transparent 29% 68%,#a2d8ff88 73%,transparent 78%)!important;opacity:.55!important;filter:none!important;animation:orb-ring 14s linear infinite;pointer-events:none}
+.orb-choice h2{margin:10px 0 8px!important;font-size:clamp(18px,2vw,24px)!important;letter-spacing:.025em!important;text-shadow:0 2px 12px #001333}
+.orb-choice .card-description{max-width:220px;min-height:0!important;margin:0 auto 12px!important;color:#e5f3ff!important;font-size:12px!important}
+.orb-number{font-size:10px;letter-spacing:.25em;color:#c5e8ff;font-weight:900}
+.orb-symbol{font-size:34px;filter:drop-shadow(0 0 12px #bce8ff88);line-height:1.1}
+.orb-cta{margin-top:4px;padding:9px 15px;border:1px solid #d6eeff7a;border-radius:99px;background:#071e46aa;color:#eff8ff;font-size:9px;font-weight:950;letter-spacing:.16em}
+.orb-choice.design-stars .orb-symbol{color:#fff2a9;text-shadow:0 0 20px #fff3b8}
+.orb-choice.design-butterfly .orb-symbol{filter:drop-shadow(0 0 12px #9ce7ff)}
+.orb-choice.design-stars:before{content:"✦   ·   ✧   ·   ✦"!important;display:block!important;position:absolute!important;inset:32px 0 auto!important;text-align:center!important;white-space:normal!important;color:#e5f4ff!important;font-size:14px!important;line-height:1!important;letter-spacing:.45em!important;transform:none!important;background:none!important;opacity:.6!important}
+.orb-choice.design-butterfly:before{content:"🦋    ✧    🦋"!important;display:block!important;position:absolute!important;inset:31px 0 auto!important;text-align:center!important;white-space:normal!important;color:#e5f4ff!important;font-size:13px!important;line-height:1!important;letter-spacing:.35em!important;transform:none!important;background:none!important;opacity:.65!important;filter:none!important}
+.orb-choice:hover,.category-choice:hover{transform:translateY(-8px) scale(1.035)!important;border-color:#fff!important;box-shadow:inset 0 5px 22px #ffffff6b,inset 0 -22px 44px #00153f88,0 0 0 10px #a6d8ff14,0 0 60px #74caff99,0 30px 70px #00102e99!important}
+.unknown-footer{color:#c1dfff!important}
+.unknown-footer strong{color:#fff!important}
+.message-entry-card{border-color:#a9d8ff88!important;background:linear-gradient(145deg,#164d8bdc,#071a38f2 75%)!important;box-shadow:0 25px 80px #00102e88,0 0 40px #51b8ff22!important}
+.back-to-categories{color:#e0f2ff!important}
+.transmit-button{background:linear-gradient(110deg,#e4f5ff,#83c9ff)!important}
+@keyframes blue-nebula{from{transform:translate(-2%,-1%) rotate(-3deg);background-position:0 20%}to{transform:translate(2%,1%) rotate(3deg);background-position:100% 80%}}
+@keyframes star-drift{to{background-position:290px 250px,-350px 310px,410px -370px,-330px 280px,440px -390px,-370px 330px}}
+@keyframes orb-float{0%,100%{translate:0 0}50%{translate:0 -13px}}
+@keyframes orb-ring{to{transform:rotate(360deg)}}
+@keyframes title-shimmer{from{background-position:0% center}to{background-position:100% center}}
+@media(max-width:760px){
+ .unknown-scene{padding:20px 15px 30px}
+ .topline{min-height:108px;align-items:flex-start!important}
+ .brand{max-width:55%;font-size:9px}
+ .live-status{margin-top:26px;font-size:8px}
+ .collab-stamp{top:0;right:0;max-width:55%;min-width:0!important;padding:8px 9px!important}
+ .collab-stamp strong{font-size:9px!important;white-space:normal}
+ .collab-stamp span,.collab-stamp small{font-size:6px}
+ .hero{margin:45px auto 32px}
+ .category-picker{flex-direction:column;gap:28px!important}
+ .orb-choice{width:min(78vw,310px)!important;height:min(78vw,310px)!important;flex-basis:auto;padding:30px!important}
+ .orb-choice h2{font-size:21px!important}
+}
+@media(prefers-reduced-motion:reduce){.unknown-scene:before,.unknown-scene:after,.orb-choice,.orb-choice:after,.hero h1 span{animation:none!important}}
