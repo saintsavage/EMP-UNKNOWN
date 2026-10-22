@@ -252,3 +252,28 @@ button,textarea{font:inherit}
   .confession-card.is-spinning .card-slice-top,
   .confession-card.is-spinning .card-slice-bottom { animation:none!important; }
 }
+
+
+/* Final polish: the cut slices carry the original question-mark artwork */
+.card-back-design { opacity:1!important; }
+.confession-card.is-spinning .card-back-design { opacity:1!important; }
+.confession-card.is-spinning .card-confession-face { opacity:0!important; }
+.confession-card.is-spinning .card-slice { z-index:9; }
+.card-slice-top,.card-slice-bottom { background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--card-ink),transparent 73%),transparent 52%),linear-gradient(145deg,color-mix(in srgb,var(--card-deep),#201a32 22%),#06060c 76%); }
+.card-slice-question { position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:block;text-align:center;font-family:Georgia,serif;font-size:clamp(85px,11vw,145px);line-height:.8;font-weight:900;color:var(--card-ink);text-shadow:0 0 10px var(--card-ink),0 0 35px color-mix(in srgb,var(--card-ink),transparent 20%);opacity:.94; }
+.card-slice-top .card-slice-question { clip-path:inset(0 0 0 0); }
+.card-slice-bottom .card-slice-question { clip-path:inset(0 0 0 0); }
+.card-slice-label { position:absolute!important;z-index:2;left:14px;right:14px;top:14px;bottom:auto!important;text-align:center;color:var(--card-ink);font-size:7px;letter-spacing:.16em;opacity:.75; }
+.card-slice-bottom .card-slice-label { top:auto;bottom:14px!important; }
+.card-confession-face { align-items:center!important;justify-content:center!important;text-align:center!important;padding:20px!important;gap:12px!important; }
+.revealed-category { align-self:center!important; }
+.revealed-message { width:100%;text-align:center!important;margin:auto 0!important;max-height:calc(100% - 55px); }
+.revealed-date { display:none!important; }
+.revealed-ornament { margin-top:0; }
+@media(max-width:760px) {
+ .card-slice-question { font-size:clamp(82px,23vw,126px); }
+ .card-slice-label { font-size:6px;left:8px;right:8px;top:10px; }
+ .card-slice-bottom .card-slice-label { top:auto;bottom:10px!important; }
+ .card-confession-face { padding:15px 9px 11px!important;gap:8px!important; }
+ .revealed-message { max-height:calc(100% - 35px);font-size:clamp(11px,3vw,13px); }
+}
