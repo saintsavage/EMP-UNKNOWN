@@ -277,3 +277,38 @@ button,textarea{font:inherit}
  .card-confession-face { padding:15px 9px 11px!important;gap:8px!important; }
  .revealed-message { max-height:calc(100% - 35px);font-size:clamp(11px,3vw,13px); }
 }
+
+/* Category-first public submission flow */
+.category-choice{display:block;width:100%;text-align:left;color:#f8f7ff;cursor:pointer;appearance:none}
+.category-choice:hover{border-color:var(--card-glow);transform:translateY(-6px);box-shadow:0 24px 65px #0009,0 0 30px color-mix(in srgb,var(--card-glow),transparent 70%)}
+.category-continue{position:relative;display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:15px;border-top:1px solid color-mix(in srgb,var(--card-glow),transparent 70%);color:var(--card-glow);font-size:10px;font-weight:950;letter-spacing:.16em}
+.category-continue span{font-size:18px}
+.message-entry-wrap{position:relative;max-width:800px;margin:0 auto}
+.back-to-categories{display:block;margin:0 0 15px;padding:10px 0;border:0;background:transparent;color:#c6b8ff;font-size:10px;font-weight:900;letter-spacing:.14em;cursor:pointer}
+.message-entry-card{padding:clamp(22px,5vw,42px);border:1px solid color-mix(in srgb,var(--card-glow),transparent 52%);border-radius:24px;background:linear-gradient(145deg,#ffffff16,#090914e8 65%);box-shadow:0 20px 80px #0008,0 0 35px color-mix(in srgb,var(--card-glow),transparent 88%);backdrop-filter:blur(20px)}
+.message-entry-card h2{font-size:clamp(25px,4vw,38px);line-height:1.12;letter-spacing:-.04em;margin:24px 0 10px}
+.message-entry-card .card-description{min-height:0;margin-bottom:22px}
+.message-entry-card textarea{height:clamp(180px,30vh,320px);resize:vertical;border-color:color-mix(in srgb,var(--card-glow),transparent 70%);font-size:15px;line-height:1.7;padding:17px}
+.entry-footer{display:flex;justify-content:space-between;gap:12px;margin:12px 0 16px;color:#9690ae;font-size:10px}
+.character-count{color:var(--card-glow)}
+.transmit-button{width:100%;padding:16px;border:0;border-radius:12px;background:var(--card-glow);color:#090916;font-size:11px;font-weight:1000;letter-spacing:.12em;cursor:pointer}
+.transmit-button:disabled{opacity:.45;cursor:not-allowed}
+.entry-error{color:#ff91ad;font-size:12px}
+.success-veil{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at center,#11172cf2,#03030afc 75%);backdrop-filter:blur(24px);animation:success-appear .35s ease-out both}
+.success-mark{text-align:center;animation:success-mark-in .55s cubic-bezier(.16,1,.3,1) both}
+.success-mark>span{display:grid;place-items:center;width:clamp(120px,24vw,210px);height:clamp(120px,24vw,210px);margin:auto;border:3px solid #71ffbf;border-radius:50%;color:#71ffbf;font-size:clamp(80px,16vw,140px);font-weight:300;line-height:1;text-shadow:0 0 28px #71ffbf88;box-shadow:0 0 35px #71ffbf35,inset 0 0 35px #71ffbf18}
+.success-mark p{margin:28px 0 10px;color:#fff;font-size:clamp(15px,3vw,23px);font-weight:950;letter-spacing:.2em}
+.success-mark small{color:#aaa6c6;font-size:9px;letter-spacing:.16em}
+@keyframes success-appear{from{opacity:0}to{opacity:1}}
+@keyframes success-mark-in{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+@media(max-width:760px){
+ .hero{margin:38px auto 28px}
+ .message-cards{grid-template-columns:1fr;max-width:560px;gap:13px}
+ .category-choice{min-height:0;padding:20px 19px}
+ .category-choice h2{font-size:20px;margin:16px 0 8px}
+ .category-choice .card-description{min-height:0;margin-bottom:0}
+ .category-continue{margin-top:13px;padding-top:11px}
+ .message-entry-wrap{max-width:600px}
+ .message-entry-card{padding:22px 18px;border-radius:19px}
+ .message-entry-card textarea{height:clamp(180px,30dvh,300px)}
+}
