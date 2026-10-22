@@ -8,6 +8,8 @@ const CATEGORY_LABELS = {
   general: "GENERAL",
 };
 
+const CARD_STYLES = ["violet", "crimson", "ice", "gold", "emerald", "rose"];
+
 export default function Admin() {
   const [password, setPassword] = useState("");
   const [authed, setAuthed] = useState(false);
@@ -16,6 +18,8 @@ export default function Admin() {
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [filter, setFilter] = useState("all");
+  const [spinningId, setSpinningId] = useState(null);
+  const [revealed, setRevealed] = useState([]);
 
   async function load() {
     setLoading(true);
@@ -54,6 +58,15 @@ export default function Admin() {
     }
   }
 
+  async function revealCard(id) {
+    if (revealed.includes(id) || spinningId !== null) return;
+    setSpinningId(id);
+    window.setTimeout(() => {
+      setRevealed((current) => current.includes(id) ? current : [...current, id]);
+      setSpinningId(null);
+    }, 5000);
+  }
+
   async function remove(id) {
     if (!confirm("Delete this message permanently?")) return;
     try {
@@ -65,6 +78,7 @@ export default function Admin() {
       const d = await r.json();
       if (!r.ok) throw new Error(d.error || "Delete failed.");
       setMessages((current) => current.filter((m) => m.id !== id));
+      setRevealed((current) => current.filter((messageId) => messageId !== id));
       setError("");
     } catch (e) {
       setError(e.message || "Delete failed.");
@@ -76,6 +90,7 @@ export default function Admin() {
     setAuthed(false);
     setMessages([]);
     setFilter("all");
+    setRevealed([]);
   }
 
   async function copyPublicLink() {
@@ -106,7 +121,9 @@ export default function Admin() {
 
   return (
     <main className="admin">
-      <header className="admin-brand"><span>EMP EXCLUSIVE</span><span className="admin-lock">PRIVATE INBOX</span></header>
+      <div className="admin-stars" aria-hidden="true" />
+      <div className="admin-space-copy" aria-hidden="true">EMP EXCLUSIVE · EMP UNKNOWN · SAYNT · EMP EXCLUSIVE · EMP UNKNOWN · SAYNT · EMP EXCLUSIVE · EMP UNKNOWN · SAYNT · EMP EXCLUSIVE · EMP UNKNOWN · SAYNT</div>
+      <header className="admin-brand"><span>EMP EXCLUSIVE</span><span className="admin-lock">PRIVATE INBOX / DEEP SPACE</span></header>
       <section className="admin-shell">
         <p className="admin-eyebrow">RESTRICTED ACCESS / EMP UNKNOWN</p>
         <h1>UNKNOWN <em>INBOX</em></h1>
@@ -120,14 +137,14 @@ export default function Admin() {
         ) : (
           <>
             <div className="admin-toolbar">
-              <div><strong>{messages.length}</strong><span> messages received</span><small>Showing the latest 200 submissions</small></div>
+              <div><strong>{messages.length}</strong><span> transmissions received</span><small>Latest 200 anonymous submissions / tap a card to decrypt</small></div>
               <div className="admin-toolbar-actions">
                 <button onClick={load} disabled={loading}>{loading ? "REFRESHING..." : "↻ REFRESH"}</button>
                 <button className="admin-quiet" onClick={logout}>LOG OUT</button>
               </div>
             </div>
             <section className="admin-share">
-              <div><p className="admin-eyebrow">PUBLIC SUBMISSION PAGE</p><p>Share the public link. Replies land here, not in your DMs by magic.</p></div>
+              <div><p className="admin-eyebrow">PUBLIC SUBMISSION PAGE</p><p>Share the portal. Anonymous transmissions land here, not in your DMs by magic.</p></div>
               <div className="admin-toolbar-actions">
                 <button onClick={() => window.open(window.location.origin, "_blank", "noopener,noreferrer")}>OPEN PUBLIC PAGE</button>
                 <button className="admin-quiet" onClick={copyPublicLink}>{copied ? "LINK COPIED" : "COPY LINK"}</button>
@@ -144,23 +161,44 @@ export default function Admin() {
               </select>
             </div>
             {error && <p className="admin-error" role="alert">{error}</p>}
-            <div className="admin-messages">
-              {visibleMessages.map((m) => (
-                <article className="admin-message" key={m.id}>
-                  <div className="admin-message-meta">
-                    <span className={"admin-category category-" + (m.category || "general")}>{CATEGORY_LABELS[m.category] || CATEGORY_LABELS.general}</span>
-                    <time dateTime={m.created_at}>{new Date(m.created_at).toLocaleString()}</time>
-                    <span className="admin-message-id">#{m.id}</span>
-                  </div>
-                  <p className="admin-message-text">{m.message}</p>
-                  <div className="admin-message-actions">
-                    <button onClick={() => copyMessage(m.message)}>COPY MESSAGE</button>
-                    <button className="admin-delete" onClick={() => remove(m.id)}>DELETE</button>
-                  </div>
-                </article>
-              ))}
-            </div>
-            {!visibleMessages.length && <div className="admin-empty"><span>✳</span><h2>{messages.length ? "Nothing in this category yet." : "The inbox is quiet."}</h2><p>{messages.length ? "Choose another category to see more submissions." : "Send a test message from the public page to check the full route."}</p></div>}
+            <section className="confession-table" aria-label="Anonymous confession card table">
+              <div className="confession-table-top">
+                <span>THE UNKNOWN TABLE</span>
+                <span>✦ STARDUST ARCHIVE ✦</span>
+              </div>
+              <div className="confession-deck">
+                {visibleMessages.map((m, index) => {
+                  const isRevealed = revealed.includes(m.id);
+                  const isSpinning = spinningId === m.id;
+                  const style = CARD_STYLES[index % CARD_STYLES.length];
+                  return (
+                    <article className={"confession-card card-design-" + style + (isSpinning ? " is-spinning" : "") + (isRevealed ? " is-revealed" : "")} key={m.id}>
+                      <button className="card-flip-trigger" onClick={() => revealCard(m.id)} disabled={isSpinning || isRevealed || spinningId !== null} aria-label={isRevealed ? "Confession revealed" : isSpinning ? "Revealing confession" : "Spin and reveal anonymous confession"}>
+                        <span className="card-back-design" aria-hidden="true">
+                          <span className="card-brand-repeat">EMP EXCLUSIVE · EMP UNKNOWN · SAYNT · EMP EXCLUSIVE · EMP UNKNOWN · SAYNT</span>
+                          <span className="card-question">?</span>
+                          <span className="card-secret-label">{isSpinning ? "DECRYPTING TRANSMISSION" : isRevealed ? "TRANSMISSION DECRYPTED" : "TAP TO DECRYPT"}</span>
+                          <span className="card-corner card-corner-one">EMP / {String(index + 1).padStart(3, "0")}</span>
+                          <span className="card-corner card-corner-two">ANONYMOUS</span>
+                        </span>
+                        <span className="card-confession-face">
+                          <span className="revealed-category">{CATEGORY_LABELS[m.category] || CATEGORY_LABELS.general}</span>
+                          <span className="revealed-message">{m.message}</span>
+                          <span className="revealed-date">{new Date(m.created_at).toLocaleString()}</span>
+                        </span>
+                      </button>
+                      <div className="confession-card-actions">
+                        <span>TRANSMISSION #{m.id}</span>
+                        <button onClick={() => copyMessage(m.message)}>COPY</button>
+                        <button className="admin-delete" onClick={() => remove(m.id)}>DELETE</button>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+              {!visibleMessages.length && <div className="admin-empty"><span>✳</span><h2>{messages.length ? "No transmissions in this sector." : "The universe is quiet."}</h2><p>{messages.length ? "Choose another category to scan a different sector." : "Send a test message from the public page to populate the table."}</p></div>}
+              <div className="confession-table-bottom"><span>EMP EXCLUSIVE</span><span>EVERY SECRET LEAVES A SIGNAL</span><span>✦ ✦ ✦</span></div>
+            </section>
           </>
         )}
       </section>
