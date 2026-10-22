@@ -24,7 +24,9 @@
 }
 .confession-card:nth-child(2n) { transform:translateX(1.2%) rotate(.35deg); }
 .confession-card:nth-child(3n) { transform:translateX(-.8%) rotate(-.3deg); }
-.confession-card:hover { z-index:20; transform:translateY(-5px) scale(1.003); }
+.confession-card:not(:first-child) { pointer-events:none; }
+.confession-card:first-child { pointer-events:auto; }
+.confession-card:hover { transform:translateY(-5px) scale(1.003); }
 .confession-card.is-spinning,
 .confession-card.is-revealed,
 .confession-card.is-voiding { z-index:30; }
