@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import "./message-canvas.css";
 
 const categories = [
   { id: "cancelled", number: "01", title: "Say Something That Will Get You Cancelled", description: "The thought you would never post under your own name.", placeholder: "Type your unfiltered thought…", symbol: "✳", color: "#56f4ff" },
