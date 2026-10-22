@@ -353,3 +353,20 @@ body:after{opacity:.035!important;background-image:linear-gradient(#fff 1px,tran
 .success-mark>span{border-color:#a8c9f4!important;color:#a8c9f4!important;text-shadow:none!important;box-shadow:inset 0 0 25px #8fb6eb12!important}
 .success-mark small{color:#b5c0ce}
 @media(max-width:760px){.hero{margin:40px auto 30px}.message-card{min-height:0!important}.message-card h2{font-size:23px}}
+
+
+/* Collaboration stamp + butterfly and deep-space card artwork */
+.topline{align-items:center;flex-wrap:wrap}
+.collab-stamp{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px 15px;min-width:250px;border:2px solid #8fb6eb;background:#0b111a;color:#f4f7fb;text-align:center;transform:rotate(-1deg);box-shadow:inset 0 0 0 3px #0b111a,inset 0 0 0 4px #8fb6eb}
+.collab-stamp span,.collab-stamp small{font-size:7px;font-weight:900;letter-spacing:.22em;color:#a9c7ec}
+.collab-stamp strong{font-size:clamp(10px,1.1vw,13px);font-weight:1000;letter-spacing:.07em;white-space:nowrap}
+.collab-stamp strong i{font-style:normal;color:#8fb6eb;padding:0 4px}
+.category-choice{isolation:isolate}
+.category-choice:before{z-index:0!important;opacity:.8}
+.category-choice:after{z-index:0!important;filter:none!important;opacity:1!important;right:10px!important;top:auto!important;bottom:14px!important;width:auto!important;height:auto!important;border-radius:0!important;background:none!important;color:#dce7f5;font-size:clamp(68px,9vw,116px);line-height:1;pointer-events:none}
+.category-choice>*{z-index:1}
+.category-choice.design-stars:before{content:"✦      ·      ✧       ·       ✦\A   ·       ✧       ·      ✦\A ✧      ·       ✦       ·";white-space:pre;display:flex;align-items:center;justify-content:center;text-align:center;color:#dce7f5;opacity:.14;background:none!important;font-size:clamp(20px,3vw,35px);line-height:2.1;letter-spacing:.25em;transform:rotate(-8deg)}
+.category-choice.design-stars:after{content:"✦";right:24px!important;bottom:22px!important;color:#8fb6eb;font-size:clamp(55px,7vw,90px);opacity:.45!important}
+.category-choice.design-butterfly:before{content:"✧    🦋    ✧\A   ·        ✦        ·\A 🦋       ✧";white-space:pre;display:flex;align-items:center;justify-content:center;text-align:center;color:#dce7f5;opacity:.14;background:none!important;font-size:clamp(22px,3vw,36px);line-height:2.2;letter-spacing:.2em;transform:rotate(8deg);filter:grayscale(1)}
+.category-choice.design-butterfly:after{content:"🦋";right:20px!important;bottom:15px!important;font-size:clamp(55px,7vw,88px);opacity:.3!important;filter:grayscale(1)!important}
+@media(max-width:760px){.topline{align-items:center}.collab-stamp{order:3;width:100%;min-width:0;max-width:330px;margin:4px auto 0;padding:9px 12px}.collab-stamp strong{font-size:12px}.category-choice.design-stars:before,.category-choice.design-butterfly:before{font-size:22px}.category-choice:after{font-size:64px!important}}
