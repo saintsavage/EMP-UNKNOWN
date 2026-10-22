@@ -438,3 +438,100 @@ body:after{opacity:.035!important;background-image:linear-gradient(#fff 1px,tran
  .orb-choice h2{font-size:21px!important}
 }
 @media(prefers-reduced-motion:reduce){.unknown-scene:before,.unknown-scene:after,.orb-choice,.orb-choice:after,.hero h1 span{animation:none!important}}
+
+
+/* Living crystal globes + genuinely drifting blue atmosphere */
+.unknown-scene{
+  background:
+    radial-gradient(ellipse at 14% 18%,#368bff 0%,transparent 33%),
+    radial-gradient(ellipse at 82% 24%,#19b9f0 0%,transparent 34%),
+    radial-gradient(ellipse at 48% 88%,#315de8 0%,transparent 42%),
+    radial-gradient(ellipse at 72% 70%,#1679c8 0%,transparent 37%),
+    linear-gradient(125deg,#03102b,#073c80,#087eb2,#123b94,#06142f)!important;
+  background-size: 155% 155%,145% 145%,160% 160%,150% 150%,300% 300%!important;
+  animation: blue-world-drift 24s ease-in-out infinite alternate!important;
+}
+.unknown-scene:before{
+  background:
+    radial-gradient(ellipse at 25% 28%,#b7e7ff66,transparent 24%),
+    radial-gradient(ellipse at 76% 67%,#5d9dff66,transparent 28%),
+    radial-gradient(ellipse at 55% 40%,#16d4ff20,transparent 38%),
+    conic-gradient(from 40deg at 50% 50%,transparent,#70c5ff18,#102f91aa,transparent,#9ce8ff22,transparent)!important;
+  background-size:180% 180%,170% 170%,160% 160%,200% 200%!important;
+  animation: blue-aurora-drift 17s ease-in-out infinite alternate!important;
+  opacity:.75!important;
+}
+.orb-choice{
+  isolation:isolate!important;
+  background:
+    radial-gradient(ellipse at 32% 18%,#ffffffd9 0%,#dff5ff8c 3%,#8bd4ff5c 10%,transparent 23%),
+    radial-gradient(ellipse at 70% 78%,#53c8ff55 0%,transparent 35%),
+    radial-gradient(circle at 38% 30%,#3b9bff 0%,#1769c7 32%,#10418e 58%,#061b4d 82%,#020a27 100%)!important;
+  box-shadow:inset -18px -24px 36px #000a,inset 12px 12px 30px #b7e8ff45,inset 0 0 0 1px #e6f7ffb0,0 0 0 5px #a6d8ff0b,0 0 38px #4eb8ff7a,0 28px 70px #0009!important;
+}
+.orb-globe-core{
+  position:absolute!important;inset:13px!important;z-index:0!important;display:block!important;
+  border-radius:50%;overflow:hidden;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 30% 22%,#d9f5ff40,transparent 26%),
+    conic-gradient(from 180deg at 55% 50%,transparent,#87d9ff18,#03184b66,#b1e8ff20,transparent,#71aaff22,transparent);
+  mix-blend-mode:screen;opacity:.95;
+}
+.orb-globe-core:before,.orb-globe-core:after{
+  content:"";position:absolute;inset:-30%;border-radius:44%;
+  border:1px solid #bceaff4a;
+  background:repeating-radial-gradient(ellipse at 50% 50%,transparent 0 17px,#c5efff16 18px 19px,transparent 20px 33px);
+  transform:rotate(-28deg) scaleX(.72);filter:blur(.2px);
+  animation:globe-current 13s linear infinite;
+}
+.orb-globe-core:after{
+  inset:-12% -45%;border-color:#d9f5ff40;
+  background:linear-gradient(115deg,transparent 35%,#b5e9ff20 46%,#e4f7ff38 49%,transparent 58%);
+  transform:rotate(35deg);animation:globe-sheen 8s ease-in-out infinite alternate;
+}
+.orb-globe-core i,.orb-globe-core b,.orb-globe-core em{
+  position:absolute;display:block;border-radius:50%;pointer-events:none;
+}
+.orb-globe-core i{
+  width:13px;height:13px;left:22%;top:29%;background:#e8faff;
+  box-shadow:0 0 9px 3px #d8f4ffbb,0 0 28px 9px #6dcaff75;
+  animation:globe-spark 4.5s ease-in-out infinite;
+}
+.orb-globe-core b{
+  width:5px;height:5px;right:24%;top:23%;background:#fff;
+  box-shadow:0 0 14px 4px #c5ecffb0;
+}
+.orb-globe-core em{
+  width:7px;height:7px;right:27%;bottom:24%;background:#9fe4ff;
+  box-shadow:0 0 17px 5px #69caff77;
+}
+.orb-choice>*:not(.orb-globe-core){position:relative;z-index:2}
+.orb-choice .orb-symbol{font-size:37px;filter:drop-shadow(0 0 13px #d5f4ff)!important}
+.orb-choice.design-stars .orb-symbol{color:#fff6bf;text-shadow:0 0 9px #fff,0 0 26px #fff0a5}
+.orb-choice.design-butterfly .orb-symbol{filter:drop-shadow(0 0 8px #e4fbff) drop-shadow(0 0 18px #62cfff)!important}
+.orb-choice:after{
+  inset:-10px!important;
+  border:1px solid #e0f5ff9c!important;
+  box-shadow:0 0 12px #70caff35,inset 0 0 12px #70caff16;
+  background:conic-gradient(from 0deg,transparent 0 18%,#e5f8ff 22%,transparent 27% 53%,#7acfff99 58%,transparent 63% 85%,#e5f8ff 89%,transparent 94%)!important;
+  opacity:.72!important;
+}
+.orb-choice:hover{
+  filter:brightness(1.1) saturate(1.12);
+  box-shadow:inset -18px -24px 36px #0009,inset 12px 12px 30px #b7e8ff5c,inset 0 0 0 1px #fff,0 0 0 8px #a6d8ff12,0 0 68px #74caffbb,0 32px 75px #000a!important;
+}
+@keyframes blue-world-drift{
+  0%{background-position:0% 0%,100% 0%,30% 100%,100% 80%,0% 50%}
+  50%{background-position:45% 30%,60% 55%,80% 20%,10% 40%,50% 30%}
+  100%{background-position:100% 70%,0% 100%,10% 0%,75% 10%,100% 50%}
+}
+@keyframes blue-aurora-drift{
+  0%{transform:translate(-3%,-2%) rotate(-5deg);background-position:0% 15%,100% 70%,40% 0%,0% 50%}
+  100%{transform:translate(3%,2%) rotate(5deg);background-position:100% 85%,0% 25%,70% 100%,100% 50%}
+}
+@keyframes globe-current{from{transform:rotate(-28deg) scaleX(.72)}to{transform:rotate(332deg) scaleX(.72)}}
+@keyframes globe-sheen{from{transform:translateX(-9%) rotate(35deg);opacity:.35}to{transform:translateX(9%) rotate(35deg);opacity:.9}}
+@keyframes globe-spark{0%,100%{transform:scale(.8);opacity:.65}50%{transform:scale(1.2);opacity:1}}
+@media(prefers-reduced-motion:reduce){
+ .unknown-scene,.unknown-scene:before,.orb-globe-core:before,.orb-globe-core:after,.orb-globe-core i{animation:none!important}
+}
