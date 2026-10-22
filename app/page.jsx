@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import "./message-canvas.css";
 
 const categories = [
-  { id: "cancelled", number: "01", title: "Anonymous Message", description: "Say what is on your mind without attaching your name.", placeholder: "Type your anonymous message…", symbol: "✳", color: "#56f4ff" },
-  { id: "confession", number: "02", title: "Confession", description: "Something you have been carrying around. No names required.", placeholder: "Let it out here…", symbol: "◌", color: "#c18aff" },
+  { id: "cancelled", number: "01", title: "Anonymous Message", description: "Say what is on your mind without attaching your name.", placeholder: "Type your anonymous message…", symbol: "✳", color: "#8fb6eb" },
+  { id: "confession", number: "02", title: "Confession", description: "Something you have been carrying around. No names required.", placeholder: "Let it out here…", symbol: "◌", color: "#dce7f5" },
 ];
 
 export default function Home() {
