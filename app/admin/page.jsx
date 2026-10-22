@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
+import "./admin-cards.css";
 
 const CATEGORY_LABELS = {
   cancelled: "GET CANCELLED",
@@ -16,7 +17,6 @@ export default function Admin() {
   const [messages, setMessages] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [copied, setCopied] = useState(false);
   const [filter, setFilter] = useState("all");
   const [spinningId, setSpinningId] = useState(null);
   const [revealed, setRevealed] = useState([]);
@@ -106,16 +106,6 @@ export default function Admin() {
     setRevealed([]);
   }
 
-  async function copyPublicLink() {
-    try {
-      await navigator.clipboard.writeText(window.location.origin);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      setError("Could not copy the link. Copy the public page address from your browser.");
-    }
-  }
-
   async function copyMessage(message) {
     try {
       await navigator.clipboard.writeText(message);
@@ -157,13 +147,6 @@ export default function Admin() {
                 <button className="admin-quiet" onClick={logout}>LOG OUT</button>
               </div>
             </div>
-            <section className="admin-share">
-              <div><p className="admin-eyebrow">PUBLIC SUBMISSION PAGE</p><p>Share the portal. Anonymous transmissions land here, not in your DMs by magic.</p></div>
-              <div className="admin-toolbar-actions">
-                <button onClick={() => window.open(window.location.origin, "_blank", "noopener,noreferrer")}>OPEN PUBLIC PAGE</button>
-                <button className="admin-quiet" onClick={copyPublicLink}>{copied ? "LINK COPIED" : "COPY LINK"}</button>
-              </div>
-            </section>
             <div className="admin-filter-row">
               <span>FILTER BY CATEGORY</span>
               <select value={filter} onChange={(e) => setFilter(e.target.value)} aria-label="Filter messages by category">
