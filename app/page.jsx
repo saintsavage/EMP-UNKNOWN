@@ -60,7 +60,7 @@ export default function Home() {
         <section className="message-cards category-picker" aria-label="Choose a message category">
           {categories.map(item => (
             <button className={`message-card category-choice orb-choice ${item.id === "confession" ? "design-butterfly" : "design-stars"}`} key={item.id} onClick={() => { setSelected(item); setError(""); }} style={{ "--card-glow": item.color }}>
-              <span className="orb-number">{item.number}</span><span className="orb-symbol" aria-hidden="true">{item.id === "confession" ? "🦋" : "✦"}</span><h2>{item.title}</h2><p className="card-description">{item.description}</p><span className="orb-cta">TAP TO ENTER ↗</span>
+              <span className="orb-globe-core" aria-hidden="true"><i /><b /><em /></span><span className="orb-number">{item.number}</span><span className="orb-symbol" aria-hidden="true">{item.id === "confession" ? "🦋" : "✦"}</span><h2>{item.title}</h2><p className="card-description">{item.description}</p><span className="orb-cta">TAP TO ENTER ↗</span>
             </button>
           ))}
         </section>
