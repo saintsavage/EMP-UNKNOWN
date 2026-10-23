@@ -89,7 +89,7 @@ export default function Home() {
             <form onSubmit={send}>
               <label className="sr-only" htmlFor="anonymous-message">Your anonymous message</label>
               <textarea id="anonymous-message" value={message} maxLength={1500} onChange={event => setMessage(event.target.value)} placeholder={selected.placeholder} required autoFocus />
-              <div className="entry-footer"><span className="anonymous-label">◉ SENT ANONYMOUSLY</span><span className="character-count">{message.length}/1500</span></div>
+              <div className="entry-footer"><span className="anonymous-label">◉ SENT ANONYMOUSLY</span><div className="emp-site-link"><strong>EMP EXCLUSIVE</strong><a href="https://emp-exclusive.vercel.app/" target="_blank" rel="noreferrer">VISIT WEBSITE ↗</a></div><span className="character-count">{message.length}/1500</span></div>
               {error && <p className="entry-error" role="alert">{error}</p>}
               <button className="transmit-button" type="submit" disabled={busy || !message.trim()}>{busy ? "TRANSMITTING…" : "SEND INTO THE UNKNOWN ↗"}</button>
             </form>
