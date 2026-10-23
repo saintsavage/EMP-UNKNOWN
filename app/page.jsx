@@ -68,7 +68,7 @@ export default function Home() {
               <span className="social-handle">@emp_saynt</span>
             </a>
           </div>
-          <div className="emp-social-site"><strong>EMP EXCLUSIVE</strong><a href="https://emp-exclusive.vercel.app/" target="_blank" rel="noreferrer">VISIT WEBSITE ↗</a></div>
+          <div className="emp-social-site"><strong>EMP EXCLUSIVE</strong><a href="https://emp-exclusive-e7cp.vercel.app/" target="_blank" rel="noreferrer">VISIT WEBSITE ↗</a></div>
         </section>
       )}
 
