@@ -14,3 +14,96 @@
 .transmit-button{position:relative;overflow:hidden;box-shadow:0 7px 28px color-mix(in srgb,var(--card-glow),transparent 82%);transition:transform .2s,filter .2s,box-shadow .2s}
 .transmit-button:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.12);box-shadow:0 10px 34px color-mix(in srgb,var(--card-glow),transparent 70%)}
 @media(max-width:760px){.message-entry-card:after{top:32px;right:18px;font-size:6px;letter-spacing:.1em}.message-entry-card .card-symbol{width:34px;height:34px;font-size:21px}}
+
+/* Public page palette aligned with the private black-hole archive */
+.unknown-scene {
+  background:
+    radial-gradient(ellipse at 50% 0%,#171329 0%,transparent 42%),
+    radial-gradient(ellipse at 12% 28%,#39205a38 0%,transparent 34%),
+    radial-gradient(ellipse at 88% 34%,#06445138 0%,transparent 36%),
+    linear-gradient(145deg,#020207 0%,#080811 48%,#030308 100%) !important;
+  color:#f7f4ff;
+}
+.unknown-scene:after {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.42;
+  background-image:
+    radial-gradient(1px 1px at 7% 13%,#fff 98%,transparent),
+    radial-gradient(1px 1px at 21% 76%,#d8caff 98%,transparent),
+    radial-gradient(2px 2px at 38% 28%,#fff 98%,transparent),
+    radial-gradient(1px 1px at 62% 18%,#a6f7ff 98%,transparent),
+    radial-gradient(1px 1px at 81% 66%,#fff 98%,transparent),
+    radial-gradient(2px 2px at 92% 31%,#e6d5ff 98%,transparent),
+    radial-gradient(1px 1px at 54% 87%,#fff 98%,transparent);
+  background-size:310px 270px,390px 330px,460px 390px,350px 310px,410px 360px,500px 430px,370px 320px;
+  animation:public-stardust-drift 75s linear infinite;
+}
+.topline .brand {color:#f1eaff;text-shadow:0 0 22px #9a76ff44}
+.topline .brand span {color:#82799f}
+.live-status {color:#b8faff}
+.live-status i {background:#5affeb;box-shadow:0 0 12px #5affeb}
+.hero h1 {text-shadow:0 0 35px #8c6dff20}
+.hero h1 span {
+  background-image:linear-gradient(100deg,#fff 4%,#d8f0ff 42%,#8dcaff 75%,#fff 100%) !important;
+}
+.subtitle {color:#bcbad4}
+.category-picker {gap:24px}
+.category-picker .orb-choice {
+  background:
+    radial-gradient(ellipse at 50% 8%,#6d45b51b,transparent 48%),
+    linear-gradient(145deg,#10101bf5,#050509f8 72%) !important;
+  border-color:color-mix(in srgb,var(--card-glow),transparent 48%) !important;
+  box-shadow:inset 0 1px 0 #ffffff18,0 25px 75px #000b,
+    0 0 35px color-mix(in srgb,var(--card-glow),transparent 87%) !important;
+  backdrop-filter:blur(18px);
+}
+.category-picker .orb-choice:before {
+  opacity:.75;
+}
+.category-picker .orb-choice:hover {
+  box-shadow:inset 0 1px 0 #ffffff25,0 28px 85px #000d,
+    0 0 44px color-mix(in srgb,var(--card-glow),transparent 77%) !important;
+}
+.collab-stamp {
+  border-color:#bba7ff55 !important;
+  background:linear-gradient(145deg,#ffffff0b,#ffffff03) !important;
+  box-shadow:inset 0 1px #ffffff13,0 12px 36px #0008,0 0 25px #8d7cff12 !important;
+}
+.collab-stamp span,.collab-stamp small {color:#9e96bd !important}
+.collab-stamp strong {color:#f1eaff !important}
+.message-entry-card {
+  border-color:#c9b8ff30 !important;
+  background:
+    radial-gradient(ellipse at 50% 0%,#6d45b51b,transparent 48%),
+    linear-gradient(145deg,#0d0c18f7,#050509fa 72%) !important;
+  box-shadow:inset 0 1px 0 #ffffff17,0 25px 90px #000b,0 0 55px #7551ff0c !important;
+}
+.back-to-categories {
+  color:#dcd5f7 !important;
+  border-color:#ffffff24 !important;
+  background:#ffffff08 !important;
+}
+.transmit-button {
+  background:linear-gradient(100deg,#8d7cff,#66e9f4) !important;
+  color:#090916 !important;
+}
+.success-veil {
+  background:#020207d9 !important;
+  backdrop-filter:blur(18px);
+}
+.success-mark {
+  border-color:#8d7cff55 !important;
+  background:linear-gradient(145deg,#10101bf5,#050509f8) !important;
+  box-shadow:0 0 60px #8d7cff1e,0 20px 80px #000b !important;
+}
+@keyframes public-stardust-drift {
+  from { background-position:0 0,0 0,0 0,0 0,0 0,0 0,0 0; }
+  to { background-position:-35px 24px,28px -18px,-22px 30px,35px 18px,-18px -25px,22px 16px,-30px -12px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .unknown-scene:after { animation:none !important; }
+}
