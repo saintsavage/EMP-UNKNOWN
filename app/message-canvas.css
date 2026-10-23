@@ -221,3 +221,34 @@
 @media(max-width:480px) {
   .entry-footer .emp-site-link strong,.entry-footer .emp-site-link a {font-size:8px}
 }
+
+
+/* EMP Exclusive site link directly beneath the Instagram handles */
+.emp-social-site {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:5px;
+  margin:19px auto 0;
+  text-align:center;
+}
+.emp-social-site strong {
+  color:#f0eaff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.19em;
+}
+.emp-social-site a {
+  color:#a8eeff;
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:.12em;
+  text-decoration:none;
+  text-shadow:0 0 18px #4bdfff24;
+  transition:color .2s ease,text-shadow .2s ease;
+}
+.emp-social-site a:hover {
+  color:#fff;
+  text-shadow:0 0 14px #65dfff99;
+  text-decoration:underline;
+}
