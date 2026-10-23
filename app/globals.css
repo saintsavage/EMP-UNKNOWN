@@ -671,3 +671,81 @@ html,body{background:#03122d!important}
   z-index:2!important;
 }
 .hero h1{overflow:visible!important;}
+
+
+/* Classified Reveal: quick scan, controlled card cut, then a clean reveal */
+.confession-card.is-spinning {
+  z-index: 1000 !important;
+  filter: drop-shadow(0 0 18px color-mix(in srgb,var(--card-ink),transparent 18%))
+          drop-shadow(0 0 42px color-mix(in srgb,#f04444,transparent 65%)) !important;
+}
+.confession-card.is-spinning .card-flip-trigger {
+  animation: classified-card-reveal 1.35s cubic-bezier(.2,.78,.18,1) both !important;
+  transform-style: preserve-3d !important;
+  overflow: visible !important;
+}
+.confession-card.is-spinning .card-back-design {
+  animation: classified-face-flash 1.35s ease-out both !important;
+}
+.confession-card.is-spinning .card-back-design::before {
+  display: block !important;
+  animation: classified-scan 1.05s ease-in-out both !important;
+}
+.confession-card.is-spinning .card-question {
+  animation: classified-question 1.1s ease-in-out both !important;
+}
+.confession-card.is-spinning .card-slice {
+  display: block !important;
+  animation: classified-slice 1.35s cubic-bezier(.2,.78,.18,1) both !important;
+}
+.confession-card.is-spinning .card-slice-top { transform-origin: 50% 100%; }
+.confession-card.is-spinning .card-slice-bottom { transform-origin: 50% 0%; }
+.confession-card.is-revealed .card-confession-face {
+  animation: classified-message-arrive .48s .04s cubic-bezier(.2,.8,.2,1) both !important;
+}
+.confession-card.is-revealed .card-back-design {
+  pointer-events: none;
+}
+@keyframes classified-card-reveal {
+  0% { transform: translateY(0) rotateX(0) rotateY(0) rotateZ(0) scale(1); }
+  20% { transform: translateY(-15px) rotateX(18deg) rotateY(12deg) rotateZ(-2deg) scale(1.025); }
+  48% { transform: translateY(-4px) rotateX(-8deg) rotateY(180deg) rotateZ(1deg) scale(1.045); }
+  72% { transform: translateY(2px) rotateX(4deg) rotateY(350deg) rotateZ(-.5deg) scale(.99); }
+  100% { transform: translateY(0) rotateX(0) rotateY(360deg) rotateZ(0) scale(1); }
+}
+@keyframes classified-face-flash {
+  0%,100% { filter: brightness(1); }
+  36% { filter: brightness(1.5) contrast(1.12); }
+  55% { filter: brightness(2.05); }
+  72% { filter: brightness(1.15); }
+}
+@keyframes classified-scan {
+  0% { opacity: 0; transform: translateY(-65%) rotate(18deg); }
+  20% { opacity: .95; }
+  75% { opacity: .8; transform: translateY(55%) rotate(18deg); }
+  100% { opacity: 0; transform: translateY(85%) rotate(18deg); }
+}
+@keyframes classified-question {
+  0%,100% { filter: drop-shadow(0 0 5px var(--card-ink)); opacity: .8; }
+  45% { filter: drop-shadow(0 0 16px #f04444) drop-shadow(0 0 34px var(--card-ink)); opacity: 1; }
+}
+@keyframes classified-slice {
+  0%,100% { opacity: 0; }
+  20%,60% { opacity: 1; }
+  48% { transform: translateY(-5px); }
+  70% { opacity: 0; }
+}
+@keyframes classified-message-arrive {
+  from { opacity: 0; filter: blur(7px); transform: scale(.975); }
+  to { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .confession-card.is-spinning .card-flip-trigger,
+  .confession-card.is-spinning .card-back-design,
+  .confession-card.is-spinning .card-back-design::before,
+  .confession-card.is-spinning .card-question,
+  .confession-card.is-spinning .card-slice,
+  .confession-card.is-revealed .card-confession-face {
+    animation-duration: .01ms !important;
+  }
+}
