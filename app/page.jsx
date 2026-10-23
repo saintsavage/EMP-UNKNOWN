@@ -55,6 +55,22 @@ export default function Home() {
         <p className="subtitle">{selected ? "One space. One message. Completely anonymous." : "Choose the orb that feels right. Your name stays out of it."}</p>
       </section>
 
+      {!selected && (
+        <section className="social-follow" aria-label="Follow the collaborators on Instagram">
+          <p className="social-follow-title">FOLLOW @planet_tumi ON INSTAGRAM</p>
+          <div className="social-follow-links">
+            <a className="social-profile social-profile-tumi" href="https://www.instagram.com/planet_tumi?utm_source=ig_web_button_share_sheet&dlrf=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer" aria-label="Open Planet Tumi's Instagram profile">
+              <span className="social-instagram-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle className="social-icon-dot" cx="17.5" cy="6.5" r="1" /></svg></span>
+              <span className="social-handle">@planet_tumi</span>
+            </a>
+            <a className="social-profile social-profile-emp" href="https://www.instagram.com/e.m.p_saynt/?hl=en" target="_blank" rel="noreferrer" aria-label="Open EMP Saynt's Instagram profile">
+              <span className="social-instagram-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle className="social-icon-dot" cx="17.5" cy="6.5" r="1" /></svg></span>
+              <span className="social-handle">@emp_saynt</span>
+            </a>
+          </div>
+        </section>
+      )}
+
       {!selected ? (
         <section className="message-cards category-picker" aria-label="Choose a message category">
           {categories.map(item => (
