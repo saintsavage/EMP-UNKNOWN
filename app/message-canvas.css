@@ -186,3 +186,38 @@
   .social-instagram-icon {width:43px;height:43px}
   .social-handle {font-size:11px}
 }
+
+
+/* EMP Exclusive website link beside the anonymous message status */
+.entry-footer .emp-site-link {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  margin:0 auto;
+  text-align:center;
+  line-height:1.2;
+}
+.entry-footer .emp-site-link strong {
+  color:#f0eaff;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.16em;
+}
+.entry-footer .emp-site-link a {
+  color:#a8eeff;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.09em;
+  text-decoration:none;
+  transition:color .2s ease,text-shadow .2s ease;
+}
+.entry-footer .emp-site-link a:hover {
+  color:#fff;
+  text-shadow:0 0 12px #65dfff99;
+  text-decoration:underline;
+}
+@media(max-width:480px) {
+  .entry-footer .emp-site-link strong,.entry-footer .emp-site-link a {font-size:8px}
+}
