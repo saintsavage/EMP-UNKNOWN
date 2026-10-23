@@ -51,7 +51,7 @@ export default function Home() {
     <main className="unknown-scene">
       <header className="topline"><div className="brand">EMP EXCLUSIVE <span>/</span> UNKNOWN</div><div className="live-status"><i /> ANONYMOUS TRANSMISSION</div><div className="collab-stamp" aria-label="EMP Exclusive x Planet Tumi collaboration"><span>COLLABORATION</span><strong>EMP EXCLUSIVE <i>×</i> PLANET TUMI</strong><small>OFFICIAL PROJECT STAMP</small></div></header>
       <section className="hero">
-        <h1><span>{selected ? "LET IT OUT." : "WHAT’S ON"}</span><br />{selected ? "LEAVE IT HERE." : "YOUR MIND?"}</h1>
+        <h1><span>{selected ? "LET IT OUT." : "SPILL"}</span><br />{selected ? "LEAVE IT HERE." : "THE TEA."}</h1>
         <p className="subtitle">{selected ? "One space. One message. Completely anonymous." : "Choose the orb that feels right. Your name stays out of it."}</p>
       </section>
 
