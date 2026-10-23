@@ -57,7 +57,7 @@ export default function Home() {
 
       {!selected && (
         <section className="social-follow" aria-label="Follow the collaborators on Instagram">
-          <p className="social-follow-title">FOLLOW @planet_tumi ON INSTAGRAM</p>
+          <p className="social-follow-title">FOLLOW US ON INSTAGRAM</p>
           <div className="social-follow-links">
             <a className="social-profile social-profile-tumi" href="https://www.instagram.com/planet_tumi?utm_source=ig_web_button_share_sheet&dlrf=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer" aria-label="Open Planet Tumi's Instagram profile">
               <span className="social-instagram-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle className="social-icon-dot" cx="17.5" cy="6.5" r="1" /></svg></span>
@@ -68,6 +68,7 @@ export default function Home() {
               <span className="social-handle">@emp_saynt</span>
             </a>
           </div>
+          <div className="emp-social-site"><strong>EMP EXCLUSIVE</strong><a href="https://emp-exclusive.vercel.app/" target="_blank" rel="noreferrer">VISIT WEBSITE ↗</a></div>
         </section>
       )}
 
@@ -89,7 +90,7 @@ export default function Home() {
             <form onSubmit={send}>
               <label className="sr-only" htmlFor="anonymous-message">Your anonymous message</label>
               <textarea id="anonymous-message" value={message} maxLength={1500} onChange={event => setMessage(event.target.value)} placeholder={selected.placeholder} required autoFocus />
-              <div className="entry-footer"><span className="anonymous-label">◉ SENT ANONYMOUSLY</span><div className="emp-site-link"><strong>EMP EXCLUSIVE</strong><a href="https://emp-exclusive.vercel.app/" target="_blank" rel="noreferrer">VISIT WEBSITE ↗</a></div><span className="character-count">{message.length}/1500</span></div>
+              <div className="entry-footer"><span className="anonymous-label">◉ SENT ANONYMOUSLY</span><span className="character-count">{message.length}/1500</span></div>
               {error && <p className="entry-error" role="alert">{error}</p>}
               <button className="transmit-button" type="submit" disabled={busy || !message.trim()}>{busy ? "TRANSMITTING…" : "SEND INTO THE UNKNOWN ↗"}</button>
             </form>
