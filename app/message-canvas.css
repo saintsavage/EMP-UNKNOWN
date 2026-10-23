@@ -107,3 +107,82 @@
 @media(prefers-reduced-motion:reduce) {
   .unknown-scene:after { animation:none !important; }
 }
+
+
+/* Collaborator Instagram links above the public message orbs */
+.social-follow {
+  width:min(100% - 36px,560px);
+  margin:0 auto 34px;
+  position:relative;
+  z-index:1;
+  text-align:center;
+}
+.social-follow-title {
+  margin:0 0 16px;
+  color:#c7b8f5;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.19em;
+  text-transform:uppercase;
+}
+.social-follow-links {
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:clamp(30px,8vw,74px);
+}
+.social-profile {
+  min-width:112px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:9px;
+  color:#e9e3ff;
+  text-decoration:none;
+  transition:transform .2s ease,filter .2s ease;
+}
+.social-profile:hover {
+  transform:translateY(-3px);
+  filter:brightness(1.16);
+}
+.social-instagram-icon {
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border:1px solid #bda4ff88;
+  border-radius:50%;
+  background:linear-gradient(145deg,#ffffff13,#ffffff03);
+  box-shadow:inset 0 1px #ffffff22,0 0 24px #9670ff20;
+}
+.social-instagram-icon svg {
+  width:23px;
+  height:23px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+}
+.social-instagram-icon .social-icon-dot {fill:currentColor;stroke:none}
+.social-profile-tumi .social-instagram-icon {
+  color:#d8baff;
+  border-color:#bd86ff99;
+  box-shadow:inset 0 1px #ffffff22,0 0 24px #ad68ff28;
+}
+.social-profile-emp .social-instagram-icon {
+  color:#a8eeff;
+  border-color:#65dfff99;
+  box-shadow:inset 0 1px #ffffff22,0 0 24px #4bdfff24;
+}
+.social-handle {
+  font-size:12px;
+  font-weight:750;
+  letter-spacing:.015em;
+}
+.social-profile-tumi .social-handle {color:#d7baff}
+.social-profile-emp .social-handle {color:#a8eeff}
+@media(max-width:480px) {
+  .social-follow {margin-bottom:27px}
+  .social-follow-title {font-size:9px;letter-spacing:.13em}
+  .social-instagram-icon {width:43px;height:43px}
+  .social-handle {font-size:11px}
+}
